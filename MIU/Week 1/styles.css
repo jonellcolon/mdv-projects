@@ -81,7 +81,9 @@ input[value="Add Car Part"]{
     -moz-border-radius: 1px;
     -webkit-border-radius: 1px;
 }
+input[name="search"]{
+	margin: 25px;
+}
 img{
-	margin: auto;
-	padding: 3px;
+	margin: -10px;
 }
