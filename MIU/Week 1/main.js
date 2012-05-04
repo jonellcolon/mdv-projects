@@ -1,6 +1,6 @@
 // Jonell Colon
-// Term 1204
-// Project 2 VFW
+// Term 1205
+// Project 1 MUI
 // Local Storage
 
 // Wait until the DOM is ready
