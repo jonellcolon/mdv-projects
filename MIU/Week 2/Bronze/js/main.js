@@ -1,6 +1,6 @@
 // Jonell Colon
 // Term 1205
-// Project 1 MUI
+// Project 2 MUI
 // Local Storage
 
 // Wait until the DOM is ready
