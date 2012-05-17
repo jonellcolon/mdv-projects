@@ -9,7 +9,7 @@
 
         <meta charset="utf-8">
         
-        <title>MECPART HELP</title>
+        <title>MECPART</title>
         
         <!--  Mobile viewport optimized: j.mp/bplateviewport -->
         <meta name="HandheldFriendly" content="True">
@@ -32,7 +32,7 @@
     <div data-role="page" id="home">
     
     	<div data-role="header" data-position="fixed" data-theme="a">
-    		<h1>MECPART HELP</h1>
+    		<h1>MECPART</h1>
     	</div>
         		
         	<!--Call To Action Image-->
@@ -689,7 +689,7 @@
     <div data-role="page" id="list" data-add-back-btn="true">
     	
         <div data-role="header" data-position="fixed">
-        	<h1>MECPART HELP</h1>
+        	<h1>MECPART</h1>
             
         </div>
         
@@ -697,12 +697,14 @@
         	
         	<form action="" method="post" id="partList">
             
-                <p>* Fields are required.</p>
+            	<p>Input all information correctly and make sure to double check part needed for mechanical work.</p>
+            
+                <p><i>* Fields are required.</i></p>
                 
                 <div data-role="fieldcontain">
                     <label for="selectmenu">* Description:</label>
-                    <select name="listmenu" id="selectmenu" data-native-menu="true">
-                      <option data-placeholder="true">Choose One</option>
+                    <select name="listmenu" id="selectmenu" data-native-menu="false">
+                      <option data-placeholder="true">-- Choose One --</option>
                           <option value="engine">Engine</option>
                           <option value="cabin">Cabin</option>
                           <option value="wheels">Wheels</option>
@@ -724,7 +726,7 @@
                 
                 
                 	<label for="email">* E-Mail: </label>
-                	<input type="email" id="email" autocomplete="on" placeholder="example@address.com" class="required email" />
+                	<input type="email" id="email" autocomplete="on" placeholder="example@address.com" class="required" />
                 </div>
                
                 <div data-role="fieldcontain">
