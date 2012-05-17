@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 <!-- Jonell Colon -->
-<!-- Project 2 MUI -->
+<!-- Project 3 MUI -->
 <!-- Term 1205 -->
 
 <html>
@@ -36,7 +36,7 @@
     	</div>
         		
         	<!--Call To Action Image-->
-        	  <img src="images/calltoaction.png" onclick="location.href='additem.html'" alt="CTA" height="223" data-transition="slide" />
+        	  <img src="images/calltoaction.png" onclick="location.href='#list'" alt="CTA" height="223" data-transition="slide" />
            
     		<div data-role="content">
         		<ul data-role="listview" data-filter="true" data-inset="true">
@@ -92,7 +92,7 @@
         	<div data-role="navbar">
             	<ul>
                 	<li><a href="index.html" data-icon="home" data-transition="slide">Home</a></li>
-                    <li><a href="additem.html" data-icon="plus" data-transition="slide" data-ajax="false">Add</a></li>
+                    <li><a href="#list" data-icon="plus" data-transition="slide">Add</a></li>
                     <li><a href="#contact" data-icon="info" data-transition="slide">Contact</a></li>
                 </ul>
             </div>
@@ -480,7 +480,7 @@
     
     </div>
     
-     <div data-role="page" id="feed" data-add-back-btn="true">
+    <div data-role="page" id="feed" data-add-back-btn="true">
     	
         <div data-role="header" data-position="fixed">
         	<h1>Latest Parts</h1>
@@ -685,10 +685,123 @@
   		</div>
     
     </div>
+    
+    <div data-role="page" id="list" data-add-back-btn="true">
+    	
+        <div data-role="header" data-position="fixed">
+        	<h1>MECPART HELP</h1>
+            
+        </div>
+        
+        <div data-role="content">
+        	
+        	<form action="" method="post" id="partList">
+            
+                <p>* Fields are required.</p>
+                
+                <div data-role="fieldcontain">
+                    <label for="selectmenu">* Description:</label>
+                    <select name="listmenu" id="selectmenu" data-native-menu="true">
+                      <option data-placeholder="true">Choose One</option>
+                          <option value="engine">Engine</option>
+                          <option value="cabin">Cabin</option>
+                          <option value="wheels">Wheels</option>
+                          <option value="exhaust">Exhaust</option>
+                          <option value="trunk">Trunk</option>
+                          <option value="body">Body</option>
+                    </select>
+                  </div>
+            	
+                <div data-role="fieldcontain">
+                	<label for="fullname">* Customer Name: </label>		  
+                	<input type="text" id="fullname" autocomplete="on" placeholder="John Smith" class="required" />
+                
+                
+                
+                	<label for="phone">* Phone Number: </label>
+                	<input type="tel" id="phone" autocomplete="on" placeholder="555-555-5555" class="required" />
+                
+                
+                
+                	<label for="email">* E-Mail: </label>
+                	<input type="email" id="email" autocomplete="on" placeholder="example@address.com" class="required email" />
+                </div>
+               
+                <div data-role="fieldcontain">
+                    <label for="cpart">Part Needed:</label>
+                    <input type="text" id="cpart">
+                
+                
+                    <label for="hmany">How Many?</label>
+                    <input type="range" name="hmany" value="1" min="1" max="5" id="hmany">
+               
+                
+        		
+                    <label for="ctype">Car Type:</label> 
+                    <input type="text" id="ctype">
+                
+                
+         		
+                    <label for="cmodel">Car Model:</label>
+                    <input type="text" id="cmodel">
+                
+         
+         		
+                    <label for="ycar">Year:</label>
+                    <input type="text" id="ycar">
+                </div>
+                
+         			<div data-role="fieldcontain">
+                    	<fieldset data-role="controlgroup" data-type="horizontal">
+                        	<legend>What Kind?</legend>
+                            <input type="radio" name="mode" id="used" value="Used" class="required">
+                            <label for="used">Used</label>
+                            <input type="radio" name="mode" id="new" value="New" checked="checked">
+                            <label for="new">New</label>
+                		</fieldset>
+                        
+                	<label for="mydate">Date Added:</label>
+						<input name="mydate" id="mydate" type="date" data-native-menu="true" data-role="datebox" data-options='{"mode": "calbox"}'>
+         	
+                    <label for="special">Special Request:</label>
+                    <textarea id="special"></textarea>
+                </div>
+                
+                <div data-inline="true" data-type="horizontal">
+                    <input type="submit" button data-inline="true" data-icon="check" value="Save" data-theme="a"/>
+                    <input type="reset" button data-inline="true" data-icon="delete" value="Reset" />
+            	</div>
+                
+            </form>
+        
+		</div>
+ 
+    </div>
+        <div data-role="footer" data-position="fixed" data-id="home">
+        	<div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+            </div>
+  		</div>
+    
+    </div>
+     
     <!-- JavaScript under here -->
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+    <!--CSS Datebox by http://jtsage.com/dp-demo/-->
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.datebox.min.css" /> 
+    
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script  type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+   	
+    <!--Date Picker Plugin by http://jtsage.com/dp-demo/-->
+   	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
+	<script type="text/javascript" src="js/libs/jquery.mobile.datebox.i8n.en.js"></script>
+	   
 	<script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/json.js"></script>
 </body>
