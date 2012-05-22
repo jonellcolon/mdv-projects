@@ -303,8 +303,6 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 });
 
-
-
 var parsePartList = function(data){
 	// uses form data here;
 	console.log(data);

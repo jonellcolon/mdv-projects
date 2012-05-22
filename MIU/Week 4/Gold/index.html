@@ -770,11 +770,20 @@
                 </div>
                 
                 <div data-inline="true" data-type="horizontal">
-                    <input type="submit" button data-inline="true" data-icon="check" value="Save" data-theme="a"/>
-                    <input type="reset" button data-inline="true" data-icon="delete" value="Reset" />
+                    <input type="submit" id="submit" button data-inline="true" data-icon="check" value="Save" data-theme="a"/>
+                    <input type="reset" id="reset" button data-inline="true" data-icon="delete" value="Reset" />
             	</div>
                 
             </form>
+            
+            <!-- Clear Storage Link and Display Order Link -->
+            <nav>
+            	<small>
+                	<a href="#" id="clear">Clear Local Storage</a>
+                	<a href="#" id="displayLink">View Parts Needed</a>
+                	<a href="#list" id="addNew" style="display:none;">Add New Part</a>
+            	</small>
+       		</nav>
         
 		</div>
  
