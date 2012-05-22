@@ -1,7 +1,7 @@
-<!DOCTYPE HTML>
+DOCTYPE HTML>
 
 <!-- Jonell Colon -->
-<!-- Project 3 MUI -->
+<!-- Project 2 MUI -->
 <!-- Term 1205 -->
 
 <html>
@@ -9,7 +9,7 @@
 
         <meta charset="utf-8">
         
-        <title>MECPART</title>
+        <title>MECPART HELP</title>
         
         <!--  Mobile viewport optimized: j.mp/bplateviewport -->
         <meta name="HandheldFriendly" content="True">
@@ -32,58 +32,51 @@
     <div data-role="page" id="home">
     
     	<div data-role="header" data-position="fixed" data-theme="a">
-    		<h1>MECPART</h1>
+    		<h1>MECPART HELP</h1>
     	</div>
         		
         	<!--Call To Action Image-->
-        	  <img src="images/calltoaction.png" onclick="location.href='#list'" alt="CTA" height="223" data-transition="slide" />
+        	  <img src="images/calltoaction.png" onclick="location.href='additem.html'" alt="CTA" height="223" data-transition="slide" />
            
     		<div data-role="content">
         		<ul data-role="listview" data-filter="true" data-inset="true">
-            		<li data-role="list-divider" data-theme="a">Browse Categories:</li>
+            		<li data-role="list-divider" data-theme="c">Browse Categories:</li>
     					
                         <li><a href="#engine" data-transition="slide">
                         	<img src="images/engine.png" />
                 				<h3>Engine</h3>
-                                <p>Search under the hood.</p>
                     			</a></li>
                                 
      					<li><a href="#cabin" data-transition="slide">
                         	<img src="images/cabin.png" />
                 				<h3>Cabin</h3>
-                                <p>Comfort and security.</p>
                     			</a></li>
                                 
    	 					<li><a href="#wheels" data-transition="slide">
                         	<img src="images/wheels.png" />
                 				<h3>Wheels</h3>
-                                <p>Air tight comfort.</p>
                     			</a></li>
          
                         <li><a href="#exhaust" data-transition="slide">
                         	<img src="images/exhaust.png" />
                 				<h3>Exhaust</h3>
-                                <p>Smoke free engine secure.</p>
                     			</a></li>
          
                         <li><a href="#trunk" data-transition="slide">
                         	<img src="images/trunk.png" />
                 				<h3>Trunk</h3>
-                                <p>See what fits.</p>
                     			</a></li>
                 
                         <li><a href="#body" data-transition="slide">
                         	<img src="images/body.png" />
                 				<h3>Body</h3>
-                                <p>Beauty and confidence.</p>
-                    			</a></li>
-                                
-                        <li><a href="#feed" data-transition="slide">
-                        	<img src="" />
-                				<h3>Latests Parts</h3>
-                                <p>Check what's new.</p>
                     			</a></li>
                   </ul>
+                  
+                  		<li><a href="#feed" data-transition="slide">
+                				<h3>Latests Parts</h3>
+                    			</a></li>
+                  
              </div> 
             
    			<!--<a href="additem.html"><strong>Add Car Part</strong></a>-->
@@ -92,7 +85,7 @@
         	<div data-role="navbar">
             	<ul>
                 	<li><a href="index.html" data-icon="home" data-transition="slide">Home</a></li>
-                    <li><a href="#list" data-icon="plus" data-transition="slide">Add</a></li>
+                    <li><a href="additem.html" data-icon="plus" data-transition="slide" data-ajax="false">Add</a></li>
                     <li><a href="#contact" data-icon="info" data-transition="slide">Contact</a></li>
                 </ul>
             </div>
@@ -436,7 +429,7 @@
         </div>
         
         <div data-role="content">
-        	<ul data-role="listview" data-inset="true">
+        	<ul data-role="collapsible-set" data-inset="true">
             	<li data-role="list-divider">MECPART HELP</li>
                 <li>12345 FullSail University Blvd. Orlando, Fl. 32826</li>
                 <li>info@mecparthelp.com</li>
@@ -447,19 +440,19 @@
         <div data-role="content">
         	<div data-role="collapsible-set">
             <li data-role="list-divider">Other Locations:</li><br />
-                <div data-role="collapsible" data-collapsed="true" data-theme="a">
+                <div data-role="content" data-collapsed="true" data-theme="a">
                     <h3>Oviedo</h3>
                     <p>2878 Oviedo Blvd. Oviedo, Fl. 32765</p>
                     <p>407.342.9888</p>
                 </div>
                 
-                <div data-role="collapsible" data-collapsed="true" data-theme="a">
+                <div data-role="content" data-collapsed="true" data-theme="a">
                     <h3>Lakeland</h3>
                     <p>678 Rocky Ave. Lakeland, Fl. 38789</p>
                     <p>321.432.2343</p>
                 </div>
                 
-                 <div data-role="collapsible" data-collapsed="true" data-theme="a">
+                 <div data-role="content" data-collapsed="true" data-theme="a">
                     <h3>Miami</h3>
                     <p>7678 Lovely Ln. Miami, Fl. 23678</p>
                     <p>305.872.7265</p>
@@ -480,7 +473,7 @@
     
     </div>
     
-    <div data-role="page" id="feed" data-add-back-btn="true">
+     <div data-role="page" id="feed" data-add-back-btn="true">
     	
         <div data-role="header" data-position="fixed">
         	<h1>Latest Parts</h1>
@@ -685,125 +678,10 @@
   		</div>
     
     </div>
-    
-    <div data-role="page" id="list" data-add-back-btn="true">
-    	
-        <div data-role="header" data-position="fixed">
-        	<h1>MECPART</h1>
-            
-        </div>
-        
-        <div data-role="content">
-        	
-        	<form action="" method="post" id="partList">
-            
-            	<p>Input all information correctly and make sure to double check part needed for mechanical work.</p>
-            
-                <p><i>* Fields are required.</i></p>
-                
-                <div data-role="fieldcontain">
-                    <label for="groups">* Description:</label>
-                    <select name="listmenu" id="groups" data-native-menu="false">
-                      <option data-placeholder="true">-- Choose One --</option>
-                          <option value="engine">Engine</option>
-                          <option value="cabin">Cabin</option>
-                          <option value="wheels">Wheels</option>
-                          <option value="exhaust">Exhaust</option>
-                          <option value="trunk">Trunk</option>
-                          <option value="body">Body</option>
-                    </select>
-                  </div>
-            	
-                <div data-role="fieldcontain">
-                	<label for="fullname">* Customer Name: </label>		  
-                	<input type="text" id="fullname" autocomplete="on" placeholder="John Smith" class="required" />
-                
-                
-                
-                	<label for="phone">* Phone Number: </label>
-                	<input type="tel" id="phone" autocomplete="on" placeholder="555-555-5555" class="required" />
-                
-                
-                
-                	<label for="email">* E-Mail: </label>
-                	<input type="email" id="email" autocomplete="on" placeholder="example@address.com" class="required" />
-                </div>
-               
-                <div data-role="fieldcontain">
-                    <label for="cpart">Part Needed:</label>
-                    <input type="text" id="cpart">
-                
-                
-                    <label for="hmany">How Many?</label>
-                    <input type="range" name="hmany" value="1" min="1" max="5" id="hmany">
-               
-                
-        		
-                    <label for="ctype">Car Type:</label> 
-                    <input type="text" id="ctype">
-                
-                
-         		
-                    <label for="cmodel">Car Model:</label>
-                    <input type="text" id="cmodel">
-                
-         
-         		
-                    <label for="ycar">Year:</label>
-                    <input type="text" id="ycar">
-                </div>
-                
-         			<div data-role="fieldcontain">
-                    	<fieldset data-role="controlgroup" data-type="horizontal">
-                        	<legend>What Kind?</legend>
-                            <input type="radio" name="mode" id="used" value="Used" class="required">
-                            <label for="used">Used</label>
-                            <input type="radio" name="mode" id="new" value="New" checked="checked">
-                            <label for="new">New</label>
-                		</fieldset>
-                        
-                	<label for="mydate">Date Added:</label>
-						<input name="mydate" id="mydate" type="date" data-native-menu="true" data-role="datebox" data-options='{"mode": "calbox"}'>
-         	
-                    <label for="special">Special Request:</label>
-                    <textarea id="special"></textarea>
-                </div>
-                
-                <div data-inline="true" data-type="horizontal">
-                    <input type="submit" button data-inline="true" data-icon="check" value="Save" data-theme="a"/>
-                    <input type="reset" button data-inline="true" data-icon="delete" value="Reset" />
-            	</div>
-                
-            </form>
-        
-		</div>
- 
-    </div>
-        <div data-role="footer" data-position="fixed" data-id="home">
-        	<div data-role="navbar">
-            	<ul>
-                	<li><a href="index.html" data-icon="home">Home</a></li>
-                    <li><a href="#list" data-icon="plus">Add</a></li>
-                    <li><a href="#contact" data-icon="info">Contact</a></li>
-                </ul>
-            </div>
-  		</div>
-    
-    </div>
-     
     <!-- JavaScript under here -->
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-    <!--CSS Datebox by http://jtsage.com/dp-demo/-->
-    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.datebox.min.css" /> 
-    
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
-	<script  type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
-   	
-    <!--Date Picker Plugin by http://jtsage.com/dp-demo/-->
-   	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
-	<script type="text/javascript" src="js/libs/jquery.mobile.datebox.i8n.en.js"></script>
-	   
 	<script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/json.js"></script>
 </body>

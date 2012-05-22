@@ -1,3 +1,8 @@
+// Jonell Colon
+// Term 1205
+// Project 2 MUI
+// Local Storage
+
 // Wait until the DOM is ready
 window.addEventListener("DOMContentLoaded", function(){
 	
@@ -301,28 +306,6 @@ window.addEventListener("DOMContentLoaded", function(){
 	var save = ge("submit");
 	save.addEventListener("click", validate);
 	
-});
 
 
-
-var parsePartList = function(data){
-	// uses form data here;
-	console.log(data);
-};
-
-$(document).ready(function() {
-	
-	var partlistform = $('#partList');
-	
-	partlistform.validate({
-		invalidHandler: function(form, validator){},
-		submitHandler: function(){
-			var data = partlistform.serializeArray();
-			parsePartList(data);
-			
-		}
-		
-	});
-	
-    
 });
