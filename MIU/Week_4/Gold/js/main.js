@@ -1,5 +1,6 @@
 // Wait until the DOM is ready
-window.addEventListener("DOMContentLoaded", function(){
+// window.addEventListener("DOMContentLoaded", function(){
+$(document).bind('pageinit',function() {
 	
 	// getElementById Function
 	function ge(x){
@@ -297,12 +298,32 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 			
 	}*/
+	
+	function validate() {
+		partlistform.validate({
+						invalidHandler: function(form, validator){
+							alert("There are required fields empty.")
+							},
+							submitHandler: function(){
+								storeData(this.key);
+			// var data = partlistform.serializeArray();
+			// parsePartList(data);
+							}
+			
+		})
+		
+};
+	
+	
+	
 	// Variable defaults
-	var contactGroups = ["--Choose One--", "Engine", "Cabin", "Wheels", "Body", "Trunk", "Exhaust"],
-		partValue,
-		errMsg = ge("errors");
+	var 
+		partlistform = $('#partList'),
+		// contactGroups = ["--Choose One--", "Engine", "Cabin", "Wheels", "Body", "Trunk", "Exhaust"],
+		partValue
+		//errMsg = ge("errors");
 	;
-	makeCats();
+	// makeCats();
 	
 	// Set Link & Submit Click Events
 	var displayLink = ge("displayLink");
@@ -318,20 +339,3 @@ var parsePartList = function(data){
 	// uses form data here;
 	console.log(data);
 };
-
-$(document).bind('pageinit',function() {
-	
-	var partlistform = $('#partList');
-	
-	partlistform.validate({
-		invalidHandler: function(form, validator){},
-		submitHandler: function(){
-			var data = partlistform.serializeArray();
-			parsePartList(data);
-			
-		}
-		
-	});
-	
-    
-});
