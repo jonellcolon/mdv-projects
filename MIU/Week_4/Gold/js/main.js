@@ -52,7 +52,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			default:
 				return false;
 		}
-	}
+	};
 	
 	function storeData(key){
 		//if the is no key, this is means this is a brand new item and need new key.
@@ -79,33 +79,40 @@ window.addEventListener("DOMContentLoaded", function(){
 			localStorage.setItem(id, JSON.stringify(item));
 			alert("Part Information Saved!");
 		
-	}
+	};
 	
+	// Write Data from local storage to browser.
 	function getData(){
+		// Call Function.
 		toggleControls("on");
 		if(localStorage.length === 0){
 			alert("There is no data in local storage, default data added.");
 			autoFillData();
 		}
+		
 		// Write Data into Local Storage
-		var makeDiv = document.createElement("div");
+		var makeDiv = document.createElement('div');
 		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement("ul");
+		makeDiv.setAttribute("data-role", "page");
+		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
-		ge("items").style.display = "block";
+		// Set 'items' display.
+		ge('items').style.display = "block";
 		for(var i=0, len=localStorage.length; i<len;i++){
-			var makeli = document.createElement("li");
-			var linksLi = document.createElement("li");
+			var makeli = document.createElement('li');
+			makeli.style.fontSize = "25px";
+			var linksLi = document.createElement('li');
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
+			// Convert string from local storage in value by JSON.parse
 			var obj = JSON.parse(value);
-			var makeSubList = document.createElement("ul");
+			var makeSubList = document.createElement('ul');
 			makeli.appendChild(makeSubList);
 			getImage(obj.group[1],makeSubList);
 			for(var n in obj){
-				var makeSubli = document.createElement("li");
+				var makeSubli = document.createElement('li');
 				makeSubList.appendChild(makeSubli);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubli.innerHTML = optSubText;
@@ -115,32 +122,35 @@ window.addEventListener("DOMContentLoaded", function(){
 			
 		}
 			
-	}
+	};
 	
-	//Get the image for the right  category
+	//Get the image for the right category
 	function getImage(catName, makeSubList){
-		var imageLi = document.createElement("li");
+		var imageLi = document.createElement('li');
 		makeSubList.appendChild(imageLi);
-		var newImg = document.createElement("img");
+		var newImg = document.createElement('img');
 		var setSrc = newImg.setAttribute("src", "images/"+ catName + ".png");
+		newImg.style.paddingTop = "10px";
 		imageLi.appendChild(newImg);	
-	}
+	};
 	
 	
 	//Auto Populate Local Storage
 	function autoFillData(){
-		//Store JSON into local storage.
+		// Retrieve JSON from json.js.
+		// Store JSON into local storage.
 		for(var n in json){
 			var id = Math.floor(Math.random()*100000001);
 			localStorage.setItem(id, JSON.stringify(json[n]));
 		}
 		
-	}
+	};
 	
 	//Make items links
 	function makeItemLinks(key, linksLi){
 		// add edit single item link
-		var editLink = document.createElement("a");
+		var editLink = document.createElement('a');
+		editLink.setAttribute("id", "editLink");
 		editLink.href = "#";
 		editLink.key = key;
 		var editText = "Edit Item";
@@ -149,20 +159,20 @@ window.addEventListener("DOMContentLoaded", function(){
 		linksLi.appendChild(editLink);
 		
 		//add line break
-		var breakTag = document.createElement("br");
+		var breakTag = document.createElement('br');
 		linksLi.appendChild(breakTag);
 		
 		// add delete single item link
-		var deleteLink = document.createElement("a");
+		var deleteLink = document.createElement('a');
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Item";
 		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
-	}
+	};
 	
-	function editItem(){
+	function editItem(key){
 		//Grab the data from our item.
 		var value = localStorage.getItem(this.key);
 		var item = JSON.parse(value);
@@ -188,6 +198,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				radios[i].setAttribute("checked", "checked");
 			}
 		}
+		// ge('dateadded').value = item.dateadded[1];
 		ge("special").value = item.special[1];
 	
 		//Remove the initial listener from input 
@@ -198,7 +209,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		//Save the key value established in this function as a property
 		editSubmit.addEventListener("click", validate);
 		editSubmit.key = this.key;	
-	}
+	};
 	
 	function deleteItem(){
 		var ask = confirm("Are you sure you want to delete item?");
@@ -210,7 +221,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			alert("Item was NOT deleted.");
 		}
 		
-	}
+	};
 	
 	function clearLocal(){
 		if(localStorage.length === 0){
@@ -221,9 +232,9 @@ window.addEventListener("DOMContentLoaded", function(){
 			window.location.reload();
 			return false;
 		}
-	}
+	};
 	
-	function validate(e){
+	/*function validate(e){
 		//Define elements we want to check
 		var getGroup = ge("groups");
 		var getFullName = ge("fullname");
@@ -282,10 +293,10 @@ window.addEventListener("DOMContentLoaded", function(){
 			//if all is ok save our data. Send the key value that came from editData function.
 			storeData(this.key);
 			
-		}
+		};
 		
 			
-	}
+	}*/
 	// Variable defaults
 	var contactGroups = ["--Choose One--", "Engine", "Cabin", "Wheels", "Body", "Trunk", "Exhaust"],
 		partValue,
@@ -308,7 +319,7 @@ var parsePartList = function(data){
 	console.log(data);
 };
 
-$(document).ready(function() {
+$(document).bind('pageinit',function() {
 	
 	var partlistform = $('#partList');
 	

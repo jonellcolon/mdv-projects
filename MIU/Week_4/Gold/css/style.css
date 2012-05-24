@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* CSS Document */
+
+label.error{display:block; margin:10px 0; color:#cc0000;}
+
+body {
+	background-image:url(../../../../../../Downloads/images.jpeg);
+	background-size:cover;
+	background-repeat:no-repeat;
+} 

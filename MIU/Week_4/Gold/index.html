@@ -20,26 +20,38 @@
         <meta http-equiv="cleartype" content="on">
         
         <!-- StyleSheets under here -->
+        
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
         <link rel="stylesheet" href="css/style.css" />
         
         <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
         <script src="js/libs/modernizr.custom.min.js"></script>
         
+        <style type="text/css">
+.ui-page {
+	background-size: cover;
+	background: transparent no-repeat url(images/background.png)
+	
+}
+</style>
+        
 </head>
-<body>
 
+<body>
+	
     <div data-role="page" id="home">
     
-    	<div data-role="header" data-position="fixed" data-theme="a">
-    		<h1>MECPART</h1>
+    	<div data-role="header" align="center" data-position="fixed" data-theme="a">
+    		
+           <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30"/>
+            
     	</div>
         		
         	<!--Call To Action Image-->
         	  <img src="images/calltoaction.png" onclick="location.href='#list'" alt="CTA" height="223" data-transition="slide" />
            
     		<div data-role="content">
-        		<ul data-role="listview" data-filter="true" data-inset="true">
+        		<ul data-role="listview" data-filter="true" data-inset="true" data-theme="c">
             		<li data-role="list-divider" data-theme="a">Browse Categories:</li>
     					
                         <li><a href="#engine" data-transition="slide">
@@ -102,8 +114,13 @@
     
     <div data-role="page" id="engine" data-add-back-btn="true">
     	
-        <div data-role="header" data-position="fixed">
-        	<h1>Engine</h1>
+        <div data-role="header" align="center" data-position="fixed">
+        	
+            
+         	
+            <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+         
+        	
             
         </div>
         
@@ -176,7 +193,7 @@
         	<div data-role="navbar">
             	<ul>
                 	<li><a href="index.html" data-icon="home">Home</a></li>
-                    <li><a href="additem.html" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
                     <li><a href="#contact" data-icon="info">Contact</a></li>
                 </ul>
             </div>
@@ -186,8 +203,10 @@
     
     <div data-role="page" id="cabin" data-add-back-btn="true">
     	
-        <div data-role="header" data-position="fixed">
-        	<h1>Cabin</h1>
+        <div data-role="header" align="center" data-position="fixed">
+         
+        	
+            <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
             
         </div>
         
@@ -260,7 +279,7 @@
         	<div data-role="navbar">
             	<ul>
                 	<li><a href="index.html" data-icon="home">Home</a></li>
-                    <li><a href="additem.html" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
                     <li><a href="#contact" data-icon="info">Contact</a></li>
                 </ul>
             </div>
@@ -270,8 +289,9 @@
     
     <div data-role="page" id="wheels" data-add-back-btn="true">
     	
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" align="center" data-position="fixed">
         	<h1>Wheels</h1>
+            <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="40" />
             
         </div>
         
@@ -314,7 +334,7 @@
         	<div data-role="navbar">
             	<ul>
                 	<li><a href="index.html" data-icon="home">Home</a></li>
-                    <li><a href="additem.html" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
                     <li><a href="#contact" data-icon="info">Contact</a></li>
                 </ul>
             </div>
@@ -324,8 +344,9 @@
     
     <div data-role="page" id="exhaust" data-add-back-btn="true">
     	
-        <div data-role="header" data-position="fixed">
-        	<h1>Exhaust</h1>
+        <div data-role="header" align="center" data-position="fixed">
+        	
+            <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
             
         </div>
         
@@ -368,7 +389,7 @@
         	<div data-role="navbar">
             	<ul>
                 	<li><a href="index.html" data-icon="home">Home</a></li>
-                    <li><a href="additem.html" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
                     <li><a href="#contact" data-icon="info">Contact</a></li>
                 </ul>
             </div>
@@ -379,7 +400,8 @@
     <div data-role="page" id="trunk" data-add-back-btn="true">
     	
         <div data-role="header" data-position="fixed">
-        	<h1>Trunk</h1>
+        	
+            <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
             
         </div>
         
@@ -394,7 +416,7 @@
         	<div data-role="navbar">
             	<ul>
                 	<li><a href="index.html" data-icon="home">Home</a></li>
-                    <li><a href="additem.html" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
                     <li><a href="#contact" data-icon="info">Contact</a></li>
                 </ul>
             </div>
@@ -405,7 +427,8 @@
     <div data-role="page" id="body" data-add-back-btn="true">
     	
         <div data-role="header" data-position="fixed">
-        	<h1>Body</h1>
+        	
+            <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
             
         </div>
         
@@ -420,7 +443,7 @@
         	<div data-role="navbar">
             	<ul>
                 	<li><a href="index.html" data-icon="home">Home</a></li>
-                    <li><a href="additem.html" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
                     <li><a href="#contact" data-icon="info">Contact</a></li>
                 </ul>
             </div>
@@ -430,8 +453,9 @@
     
     <div data-role="page" id="contact" data-add-back-btn="true">
     	
-        <div data-role="header" data-position="fixed">
-        	<h1>Contact</h1>
+        <div data-role="header" data-position="fixed" align="center">
+        	
+            <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
             
         </div>
         
@@ -440,7 +464,7 @@
             	<li data-role="list-divider">MECPART HELP</li>
                 <li>12345 FullSail University Blvd. Orlando, Fl. 32826</li>
                 <li>info@mecparthelp.com</li>
-                <li>407.543.4356</li>
+                <li>(407) 543-4356</li>
             </ul>
         </div>
        
@@ -450,19 +474,19 @@
                 <div data-role="collapsible" data-collapsed="true" data-theme="a">
                     <h3>Oviedo</h3>
                     <p>2878 Oviedo Blvd. Oviedo, Fl. 32765</p>
-                    <p>407.342.9888</p>
+                    <p>(407) 342-9888</p>
                 </div>
                 
                 <div data-role="collapsible" data-collapsed="true" data-theme="a">
                     <h3>Lakeland</h3>
                     <p>678 Rocky Ave. Lakeland, Fl. 38789</p>
-                    <p>321.432.2343</p>
+                    <p>(321) 432-2343</p>
                 </div>
                 
                  <div data-role="collapsible" data-collapsed="true" data-theme="a">
                     <h3>Miami</h3>
                     <p>7678 Lovely Ln. Miami, Fl. 23678</p>
-                    <p>305.872.7265</p>
+                    <p>(305) 872-7265</p>
                 </div>
             </div>
                         
@@ -472,7 +496,7 @@
         	<div data-role="navbar">
             	<ul>
                 	<li><a href="index.html" data-icon="home">Home</a></li>
-                    <li><a href="additem.html" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
                     <li><a href="#contact" data-icon="info">Contact</a></li>
                 </ul>
             </div>
@@ -482,8 +506,11 @@
     
     <div data-role="page" id="feed" data-add-back-btn="true">
     	
-        <div data-role="header" data-position="fixed">
-        	<h1>Latest Parts</h1>
+        <div data-role="header" data-position="fixed" align="center">
+        	
+            <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+            
+            
             
         </div>
         
@@ -678,7 +705,7 @@
         	<div data-role="navbar">
             	<ul>
                 	<li><a href="index.html" data-icon="home">Home</a></li>
-                    <li><a href="additem.html" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
                     <li><a href="#contact" data-icon="info">Contact</a></li>
                 </ul>
             </div>
@@ -688,8 +715,9 @@
     
     <div data-role="page" id="list" data-add-back-btn="true">
     	
-        <div data-role="header" data-position="fixed">
-        	<h1>MECPART</h1>
+        <div data-role="header" align="center" data-position="fixed">
+        	
+        	<img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="3" height="30" />
             
         </div>
         
@@ -770,8 +798,8 @@
                 </div>
                 
                 <div data-inline="true" data-type="horizontal">
-                    <input type="submit" id="submit" button data-inline="true" data-icon="check" value="Save" data-theme="a"/>
-                    <input type="reset" id="reset" button data-inline="true" data-icon="delete" value="Reset" />
+                    <input href="" type="submit" id="submit" button data-inline="true" data-icon="check" value="Save" data-theme="a" data-ajax= "false"/>
+                    <input type="reset" id="reset" button data-inline="true" data-icon="delete" value="Reset" data-ajax="false"/>
             	</div>
                 
             </form>
@@ -784,10 +812,7 @@
                 	<a href="#list" id="addNew" style="display:none;">Add New Part</a>
             	</small>
        		</nav>
-        
-		</div>
- 
-    </div>
+        </div>
         <div data-role="footer" data-position="fixed" data-id="home">
         	<div data-role="navbar">
             	<ul>
@@ -801,7 +826,7 @@
     </div>
      
     <!-- JavaScript under here -->
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+    
     <!--CSS Datebox by http://jtsage.com/dp-demo/-->
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.datebox.min.css" /> 
     
