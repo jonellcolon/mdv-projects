@@ -44,12 +44,12 @@
     
     	<div data-role="header" align="center" data-position="fixed" data-theme="a">
     		
-           <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30"/>
+           <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="45"/>
             
     	</div>
         		
         	<!--Call To Action Image-->
-        	  <img src="images/calltoaction.png" onclick="location.href='#list'" alt="CTA" height="223" data-transition="slide" />
+        	  <img src="images/calltoaction.png" alt="CTA" height="223" class="ui-shadow" onclick="location.href='#list'" data-transition="slide" />
            
     		<div data-role="content">
         		<ul data-role="listview" data-filter="true" data-inset="true" data-theme="c">
@@ -731,7 +731,7 @@
                 <p><i>* Fields are required.</i></p>
                 
                 <div data-role="fieldcontain">
-                    <label for="groups">* Description:</label>
+                    <label for="groups"><font color="#FF0000">(*)</font> Description:</label>
                     <select name="listmenu" id="groups" data-native-menu="false">
                       <option data-placeholder="true">-- Choose One --</option>
                           <option value="engine">Engine</option>
@@ -744,58 +744,58 @@
                   </div>
             	
                 <div data-role="fieldcontain">
-                	<label for="fullname">* Customer Name: </label>		  
-                	<input type="text" id="fullname" autocomplete="on" placeholder="John Smith" class="required" />
+                	<p><label for="fullname"><font color="#FF0000">(*)</font> Customer Name: </label>		  
+                	<input type="text" id="fullname" autocomplete="on" placeholder="John Smith" class="required" /></p>
                 
                 
                 
-                	<label for="phone">* Phone Number: </label>
-                	<input type="tel" id="phone" autocomplete="on" placeholder="555-555-5555" class="required" />
+                	<p><label for="phone"><font color="#FF0000">(*)</font> Phone Number: </label>
+                	<input type="tel" id="phone" autocomplete="on" placeholder="555-555-5555" class="required" /></p>
                 
                 
                 
-                	<label for="email">* E-Mail: </label>
-                	<input type="email" id="email" autocomplete="on" placeholder="example@address.com" class="required" />
+                	<p><label for="email"><font color="#FF0000">(*)</font> E-Mail: </label>
+                	<input type="email" id="email" autocomplete="on" placeholder="example@address.com" class="required" /></p>
                 </div>
                
                 <div data-role="fieldcontain">
-                    <label for="cpart">Part Needed:</label>
-                    <input type="text" id="cpart">
+                    <p><label for="cpart">Part Needed:</label>
+                    <input type="text" id="cpart"></p>
                 
                 
-                    <label for="hmany">How Many?</label>
-                    <input type="range" name="hmany" value="1" min="1" max="5" id="hmany">
+                    <p><label for="hmany">How Many?</label>
+                    <input type="range" name="hmany" value="1" min="1" max="5" id="hmany"></p>
                
                 
         		
-                    <label for="ctype">Car Type:</label> 
-                    <input type="text" id="ctype">
+                    <p><label for="ctype">Car Type:</label> 
+                    <input type="text" id="ctype"></p>
                 
                 
          		
-                    <label for="cmodel">Car Model:</label>
-                    <input type="text" id="cmodel">
+                    <p><label for="cmodel">Car Model:</label>
+                    <input type="text" id="cmodel"></p>
                 
          
          		
-                    <label for="ycar">Year:</label>
-                    <input type="text" id="ycar">
+                    <p><label for="ycar">Year:</label>
+                    <input type="text" id="ycar"></p>
                 </div>
                 
          			<div data-role="fieldcontain">
                     	<fieldset data-role="controlgroup" data-type="horizontal">
-                        	<legend>What Kind?</legend>
+                        	<p><legend>What Kind?</legend>
                             <input type="radio" name="mode" id="used" value="Used" class="required">
                             <label for="used">Used</label>
                             <input type="radio" name="mode" id="new" value="New" checked="checked">
-                            <label for="new">New</label>
+                            <label for="new">New</label></p>
                 		</fieldset>
                         
-                	<label for="mydate">Date Added:</label>
-						<input name="mydate" id="mydate" type="date" data-native-menu="true" data-role="datebox" data-options='{"mode": "calbox"}'>
+                	<p><label for="mydate">Date Added:</label>
+						<input name="mydate" id="mydate" type="date" data-native-menu="true" data-role="datebox" data-options='{"mode": "calbox"}'></p>
          	
-                    <label for="special">Special Request:</label>
-                    <textarea id="special"></textarea>
+                    <p><label for="special">Special Request:</label>
+                    <textarea id="special"></textarea></p>
                 </div>
                 
                 <div data-inline="true" data-type="horizontal">

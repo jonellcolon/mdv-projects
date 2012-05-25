@@ -11,14 +11,14 @@ h1{
 }
 body{
 	font-family: Helvetica;
-	background: rgb(230,230,230);
+	background: rgb(102,102,102);
 }
 header{
 	position: relative;
 	margin: -23px 0px 0px -8px;
 	padding: 8px 8px 0px 8px;
 	width: 100%;
-	background: -webkit-linear-gradient(top, #ebedeb, #d3d3d4 10%, #d3d3d4, #b0b1b0 90%, #9a9b9a);
+	background: rgb(204,204,204);
 	border: medium;
 	border-color: rgb(0,0,0);
 }
@@ -26,8 +26,8 @@ legend{
 	font-weight: bold;
 	font-size: 18px;
 	font-weight: 3px;
-	background: #2a2a2a;
-	color: #FFF;
+	background: rgb(204,204,204);
+	color: rgb(255,0,0);
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	border-color: #333;
@@ -90,5 +90,17 @@ img{
 input[type="search"]{
 	margin: 8px;
 	padding: 10px;
+}
+
+p{
+	color:#FFFFFF;
+}
+
+label{
+	color:rgb(255,255,255);
+}
+
+a{
+	color:rgb(255,255,255);
 }
 	

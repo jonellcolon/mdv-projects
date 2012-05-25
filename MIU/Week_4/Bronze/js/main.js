@@ -101,6 +101,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		ge("items").style.display = "block";
 		for(var i=0, len=localStorage.length; i<len;i++){
 			var makeli = document.createElement("li");
+			makeli.style.fontSize = "18px";
 			var linksLi = document.createElement("li");
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
