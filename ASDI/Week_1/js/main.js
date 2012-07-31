@@ -327,7 +327,7 @@ if (Modernizr.localstorage) {
 	
 	$(function(){
 		
-		$("#saveForm")
+		$("#partList")
 			.after("<input type='submit' value='Save Form' id='saveData'>");
 			
 			$("saveData")
@@ -350,7 +350,7 @@ if (Modernizr.localstorage) {
 			
 			$("header").before("<p>This form has saved data!</p>");
 			
-			var data = $("#list").serializeArray();
+			var data = $("#partList").serializeArray();
 			
 			$each(data, function(i, obj) {
 				$("[name='" + obj.name +"']").val(localStorage.getItem(obj.name));
