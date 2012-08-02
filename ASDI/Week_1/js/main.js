@@ -1,32 +1,16 @@
 // Wait until the DOM is ready
-/*window.addEventListener("DOMContentLoaded", function(){
-	
-	// getElementById Function
-	function ge(x){
-		var theElement = document.getElementById(x);
-		return theElement;
-	}
-	
-	// Create select field element and populate with options.
-	function makeCats(){
-		var formTag = document.getElementsByTagName('form'), //formTag is an array.
-			selectLi = ge('select'),
-			makeSelect = document.createElement('select');
-			makeSelect.setAttribute('id', 'groups');
-		for(var i=0, j=contactGroups.length; i<j; i++){
-			var makeOption = document.createElement('option');
-			var optText = contactGroups[i];
-			makeOption.setAttribute('value', optText);
-			makeOption.innerHTML = optText;
-			makeSelect.appendChild(makeOption);
+$(document).ready(function() {
+    
+	var partMode,
+		submit = $("#submit");
+		function resetForm(){
+				window.location.reload();
 		}
-		selectLi.appendChild(makeSelect);
-	}
 	
 	// Find value of selected radio button.
 	function getSelectedRadio(){
-		var radios = document.forms[1].mode;
-		for(var i=0; i<radios.length; i++){
+		var radios = $("#mode");
+		for(var i=0; i < radios.length; i++){
 			if(radios[i].checked){
 				partMode = radios[i].value;
 			}
@@ -37,17 +21,17 @@
 	function toggleControls(n){
 		switch(n){
 			case "on":
-				ge("partList").style.display = "none";
-				ge("clear").style.display = "inline";
-				ge("displayLink").style.display = "none";
-				ge("addNew").style.display = "inline";
+				$("#partList").addClass("none");
+				$("#clear").addClass("inline");
+				$("#displayLink").addClass("none");
+				$("#addNew").addClass("inline");
 				break;
 			case "off":	
-				ge("partList").style.display = "block";
-				ge("clear").style.display = "inline";
-				ge("displayLink").style.display = "inline";
-				ge("addNew").style.display = "none";
-				ge("items").style.display = "none";
+				$("#partList").addClass("block");
+				$("#clear").addClass("inline");
+				$("#displayLink").addClass("inline");
+				$("#addNew").addClass("none");
+				$("#items").addClass("none");
 				break;
 			default:
 				return false;
@@ -57,29 +41,49 @@
 	function storeData(key){
 		//if the is no key, this is means this is a brand new item and need new key.
 		if(!key){
-		var id			= Math.floor(Math.random()*100000001);
+		var id = Math.floor(Math.random()*100000001);
 		}else{
 			id = key;
 		}
 		getSelectedRadio();
 		var item		= {};
-			item.group	= ["Group: ", ge("groups").value];
-			item.fullname	= ["Full Name: ", ge("fullname").value];
-			item.phone	= ["Phone Number: ", ge("phone").value];
-			item.email	= ["E-Mail: ", ge("email").value];
-			item.cpart	= ["Car Part: ", ge("cpart").value];
-			item.hmany	= ["How Many: ", ge("hmany").value];
-			item.ctype	= ["Car Type: ", ge("ctype").value];
-			item.cmodel	= ["Car Model: ", ge("cmodel").value];
-			item.ycar	= ["Car Year: ", ge("ycar").value];
+			item.group	= ["Group: ", $("#groups").value];
+			item.fullname	= ["Full Name: ", $("#fullname").value];
+			item.phone	= ["Phone Number: ", $("#phone").value];
+			item.email	= ["E-Mail: ", $("#email").value];
+			item.cpart	= ["Car Part: ", $("#cpart").value];
+			item.hmany	= ["How Many: ", $("#hmany").value];
+			item.ctype	= ["Car Type: ", $("#ctype").value];
+			item.cmodel	= ["Car Model: ", $("#cmodel").value];
+			item.ycar	= ["Car Year: ", $("#ycar").value];
 			item.mode	= ["Value: ", partMode];
-			item.special	= ["Special Request: ", ge("special").value];
+			item.special	= ["Special Request: ", $("#special").value];
 			
 			//Save data to Local Storage: Stringify.
 			localStorage.setItem(id, JSON.stringify(item));
 			alert("Part Information Saved!");
 		
 	}
+	
+	$.validator.setDefaults({
+    	ignore: ""
+	});
+
+    function validate(){
+        var parsePartListForm = function(data){
+            storeData(data);
+        };
+        $(document).ready(function(){
+            var pList = $("#partList");
+            pList.validate({
+                invalidHandler: function(form, validator){},
+                submitHandler: function(){
+                    var data = pList.serializeArray();
+                    parsePartListForm(data);
+                }
+            });
+        });
+    }
 	
 	function getData(){
 		toggleControls("on");
@@ -88,27 +92,34 @@
 			autoFillData();
 		}
 		// Write Data into Local Storage
-		var makeDiv = document.createElement('div');
-		makeDiv.setAttribute('id', 'items');
-		var makeList = document.createElement('ul');
+		var makeDiv = $("#list");
+		makeDiv.setAttribute("data-role", "content");
+		makeDiv.appendChild("<ul id=" + "vehiclePartList" + "></ul>");
+		var makeList = $("#vehiclePartList");
+		makeList.setAttribute({
+			dataRole: "listview",
+			dataInset: "true",
+			dataFilter: "true"
+		});
+		
 		makeDiv.appendChild(makeList);
-		document.body.appendChild(makeDiv);
-		ge('items').style.display = "block";
-		for(var i=0, len=localStorage.length; i<len;i++){
-			var makeli = document.createElement('li');
-			var linksLi = document.createElement('li');
+		// document.body.appendChild(makeDiv);
+		$("#items").addClass("block");
+		for(var i=0, len=localStorage.length; i < len;i++){
+			var makeli = $("<li></li>");
+			var linksLi = $("<li></li>");
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
-			var makeSubList = document.createElement('ul');
+			var makeSubList = $("<ul></ul>");
 			makeli.appendChild(makeSubList);
 			getImage(obj.group[1],makeSubList);
 			for(var n in obj){
-				var makeSubli = document.createElement('li');
+				var makeSubli = $("<li></li>");
 				makeSubList.appendChild(makeSubli);
 				var optSubText = obj[n][0]+" "+obj[n][1];
-				makeSubli.innerHTML = optSubText;
+				makeSubli.appendChild(optSubText);
 				makeSubList.appendChild(linksLi);
 			}
 			makeItemLinks(localStorage.key(i), linksLi); // Create our edit and delete buttons/links.
@@ -119,10 +130,10 @@
 	
 	//Get the image for the right  category
 	function getImage(catName, makeSubList){
-		var imageLi = document.createElement('li');
+		var imageLi = $("<li></li>");
 		makeSubList.appendChild(imageLi);
-		var newImg = document.createElement('img');
-		var setSrc = newImg.setAttribute("src", "images/"+ catName + ".png");
+		var newImg = $("<img />");
+		var setSrc = newImg.setAttribute("src", "images/" + catName + ".png");
 		imageLi.appendChild(newImg);	
 	}
 	
@@ -140,25 +151,25 @@
 	//Make items links
 	function makeItemLinks(key, linksLi){
 		// add edit single item link
-		var editLink = document.createElement('a');
+		var editLink = $("");
 		editLink.href = "#";
 		editLink.key = key;
 		var editText = "Edit Item";
-		editLink.addEventListener('click', editItem);
-		editLink.innerHTML = editText;
+		$(editLink).bind("click", editItem);
+		editLink.innerHTML(editText);
 		linksLi.appendChild(editLink);
 		
 		//add line break
-		var breakTag = document.createElement('br');
+		var breakTag = $('<br>');
 		linksLi.appendChild(breakTag);
 		
 		// add delete single item link
-		var deleteLink = document.createElement('a');
+		var deleteLink = $("");
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Item";
-		deleteLink.addEventListener('click', deleteItem);
-		deleteLink.innerHTML = deleteText;
+		$(deleteLink).bind("click", deleteItem);
+		deleteLink.innerHTML(deleteText);
 		linksLi.appendChild(deleteLink);
 	}
 	
@@ -171,15 +182,15 @@
 		toggleControls("off");
 		
 		//populate the form field.
-		ge("groups").value = item.group[1];
-		ge("fullname").value = item.fullname[1];
-		ge("phone").value = item.phone[1];
-		ge("email").value = item.email[1];
-		ge("cpart").value = item.cpart[1];
-		ge("hmany").value = item.hmany[1];
-		ge("ctype").value = item.ctype[1];
-		ge("cmodel").value = item.cmodel[1];
-		ge("ycar").value = item.ycar[1];
+		$("#groups").value = item.group[1];
+		$("#fullname").value = item.fullname[1];
+		$("#phone").value = item.phone[1];
+		$("#email").value = item.email[1];
+		$("#cpart").value = item.cpart[1];
+		$("#hmany").value = item.hmany[1];
+		$("#ctype").value = item.ctype[1];
+		$("#cmodel").value = item.cmodel[1];
+		$("#ycar").value = item.ycar[1];
 		var radios = document.forms[0].mode;
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].value == "Used" && item.mode[1] == "Used"){
@@ -188,15 +199,15 @@
 				radios[i].setAttribute("checked", "checked");
 			}
 		}
-		ge("special").value = item.special[1];
+		$("#special").value = item.special[1];
 	
 		//Remove the initial listener from input 
-		save.removeEventListener('click', storeData);
+		save.unbind("click", storeData);
 		//Change Submit button value to edit button
-		ge('submit').value = "Edit Content";
-		var editSubmit = ge('submit');
+		$("#submit").bind = "Edit Content";
+		var editSubmit = $("#submit");
 		//Save the key value established in this function as a property
-		editSubmit.addEventListener('click', validate);
+		editSubmit.bind("click", validate);
 		editSubmit.key = this.key;	
 	}
 	
@@ -223,12 +234,12 @@
 		}
 	}
 	
-	function validate(e){
+	/*function validate(e){
 		//Define elements we want to check
-		var getGroup = ge("groups");
-		var getFullName = ge("fullname");
-		var getPhone = ge("phone");
-		var getEmail = ge("email");
+		var getGroup = $("#groups");
+		var getFullName = $("#fullname");
+		var getPhone = $("#phone");
+		var getEmail = $("#email");
 		
 		//Rest error messages
 		errMsg.innerHTML = "";
@@ -272,7 +283,7 @@
 		//if there were errors display them on the screen
 		if (messageAry.length >= 1){
 			for (var i=0, j=messageAry.length; i < j; i++){
-				var txt = document.createElement('li');
+				var txt = $("#li");
 				txt.innerHTML = messageAry[i];
 				errMsg.appendChild(txt);
 			}
@@ -285,78 +296,22 @@
 		}
 		
 			
-	}
+	}*/
 	// Variable defaults
-	var contactGroups = ["--Choose One--", "Engine", "Cabin", "Wheels", "Body", "Trunk", "Exhaust"],
+	/*var contactGroups = ["--Choose One--", "Engine", "Cabin", "Wheels", "Body", "Trunk", "Exhaust"],
 		partValue,
-		errMsg = ge('errors');
+		errMsg = $("#errors");*/
 	;
-	makeCats();
+	// makeCats();
 	
 	// Set Link & Submit Click Events
-	var displayLink = ge('displayLink');
-	displayLink.addEventListener('click', getData);
-	var clearLink = ge('clear');
-	clearLink.addEventListener('click', clearLocal);
-	var save = ge('submit');
-	save.addEventListener('click', validate);
+	var displayLink = $("#displayLink");
+	displayLink.bind("click", getData);
+	var clearLink = $("#clear");
+	clearLink.bind("click", clearLocal);
+	var save = $("#submit");
+	save.bind("click", validate);
 	
+
+
 });
-
-var parsePartList = function(data){
-	// uses form data here;
-	console.log(data);
-};
-
-$(document).bind('pageinit', function(){
-    var partlistform = $('#partList');
-        partlistform.validate({
-		invalidHandler: function(form, validator){},
-		submitHandler: function(){
-			var data = partlistform.serializeArray();
-			parsePartList(data);
-			
-			}
-			
-		});
-
-}); */
-
-if (Modernizr.localstorage) {
-	
-	
-	$(function(){
-		
-		$("#partList")
-			.after("<input type='submit' value='Save Form' id='saveData'>");
-			
-			$("saveData")
-				.click(function(e){
-					
-					e.preventDefault();
-					
-					localStorage.setItem("flag", "set");
-					
-					var data = $("#list").serializeArray();
-					
-					$.each(data, function(i, obj) {
-						localStorage.setItem(obj.name, obj.value);
-						
-					});
-				
-				});
-				
-		if (localStorage.getItem("flag") == "set") {
-			
-			$("header").before("<p>This form has saved data!</p>");
-			
-			var data = $("#partList").serializeArray();
-			
-			$each(data, function(i, obj) {
-				$("[name='" + obj.name +"']").val(localStorage.getItem(obj.name));
-			});
-		
-		}
-
-	});
-};
