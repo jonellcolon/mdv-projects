@@ -301,11 +301,9 @@ $(document).ready(function() {
 	/*var contactGroups = ["--Choose One--", "Engine", "Cabin", "Wheels", "Body", "Trunk", "Exhaust"],
 		partValue,
 		errMsg = $("#errors");*/
-<<<<<<< HEAD
+
 	//;
-=======
-	;
->>>>>>> master
+
 	// makeCats();
 	
 	// Set Link & Submit Click Events
