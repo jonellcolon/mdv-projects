@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlCarData>
+    <parts>
+        <groups>Cabin</groups>
+        <fullname>Rose Ayala</fullname>
+        <phone>321-662-0041</phone>
+		<email>rayala@gmail.com</email>
+		<cpart>Gauges</cpart>
+		<hmany>2</hmany>
+		<ctype>Hunday</ctype>
+		<cmodel>Fiero</cmodel>
+		<ycar>2004</ycar>
+		<mode>New</mode>
+		<mydate>2012-30-08</mydate>
+		<special>Keep car clean always.</special>
+    </parts>
+	<parts>
+        <groups>Engine</groups>
+        <fullname>Jonell Colon</fullname>
+        <phone>407-249-0896</phone>
+		<email>jonellcolon@aol.com</email>
+		<cpart>Hose</cpart>
+		<hmany>3</hmany>
+		<ctype>Toyota</ctype>
+		<cmodel>Corolla</cmodel>
+		<ycar>2012</ycar>
+		<mode>New</mode>
+		<mydate>2012-10-09</mydate>
+		<special>Clean motor as well.</special>
+    </parts>
+	<parts>
+        <groups>Body</groups>
+        <fullname>Daisy Ayala</fullname>
+        <phone>407-316-0133</phone>
+		<email>daisy@gmail.com</email>
+		<cpart>Red Color</cpart>
+		<hmany>1</hmany>
+		<ctype>Honda</ctype>
+		<cmodel>Civic</cmodel>
+		<ycar>1999</ycar>
+		<mode>New</mode>
+		<mydate>2012-10-10</mydate>
+		<special>Make it happen.</special>
+    </parts>
+</xmlCarData>
