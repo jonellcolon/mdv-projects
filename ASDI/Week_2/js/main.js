@@ -4,7 +4,7 @@
 
 $('#home').on('pageinit', function(){
     //JSON
-$('#jsonData').on("click", function(){
+$('#jsonData').on('click', function(){
 console.log('#jsonData');
 $('#carData').empty();
         $.ajax({
@@ -30,17 +30,16 @@ $('#carData').empty();
 								'<p>' + part.special +'</p>'+
 							'</div>'
                        ).appendTo('#carData');
-					};
-             },
-			 error: function(error){
-			console.log(error);
-			}
+					   console.log(response);
+					}
+             }
       });
+	  return false;
 });
   
 
 //XML
-$('#xmlData').on("click", function(){
+$('#xmlData').on('click', function(){
 console.log('#xmlData');
 $('#carData').empty();
 		$.ajax({
@@ -62,7 +61,7 @@ $('#carData').empty();
 					var mode = $(this).find('mode').text();
 					var special = $(this).find('special').text();
 					$(''+
-						'<div class="carPartList">'+
+						'<div class="partsCar">'+
 							'<h2>'+ groups +'</h2>'+
 							'<p>'+ fullname +'</p>'+
 							'<p>'+ phone +'</p>'+
@@ -76,12 +75,11 @@ $('#carData').empty();
 							'<p>'+ special +'</p>'+
 						'</div>'
 					).appendTo('#carData');
+					console.log(xml);
 				});
-			},
-		error: function(error){
-		console.log(error);
-		}
-	});
+			}
+		});
+		return false;
 });
 	
 	//WDDX
@@ -94,7 +92,9 @@ $('#carData').empty();
     dataType : "wddx",
     success  : function(wddx) {
         console.log(wddx);
-    }
+    	}
+		});
+	});
 });
 
 
@@ -171,20 +171,17 @@ $("#list").on('pageinit',function() {
 	});
 
     function validate(){
-        var parsePartListForm = function(data){
-            storeData(data);
-        };
-        $(document).ready(function(){
-            var pList = $("#partList");
-            pList.validate({
-                invalidHandler: function(form, validator){},
+        $("#partList").validate({
+                invalidHandler: function(form, validator){
+					alert("Fill all required fields.")
+					
+				},
                 submitHandler: function(){
-                    var data = pList.serializeArray();
-                    parsePartListForm(data);
+                    save.(this.key);
                 }
-            });
-        });
-    }
+         })
+     
+   };
 
 	function getData(){
 		toggleControls("on");
@@ -312,7 +309,8 @@ $("#list").on('pageinit',function() {
 		editSubmit.on("click", validate);
 		editSubmit.key = this.key;	
 	}
-
+	
+// Delete a Car Part
 	function deleteItem(){
 		var ask = confirm("Are you sure you want to delete item?");
 		if (ask){
@@ -325,6 +323,7 @@ $("#list").on('pageinit',function() {
 
 	}
 
+// Clear All Car Data
 	function clearLocal(){
 		if(localStorage.length === 0){
 			alert("There is no data to clear.");
@@ -409,11 +408,8 @@ $("#list").on('pageinit',function() {
 	// makeCats();
 
 	// Set Link & Submit Click Events
-	var displayLink = $("#displayLink");
-	displayLink.on("click", getData);
-	var clearLink = $("#clear");
-	clearLink.on("click", clearLocal);
-	var save = $("#submit");
-	save.on("click", validate);
-
+	$("#displayLink").on("click", getData);
+	$("#clear").on("click", clearLocal);
+	$("#submit").on("click", validate);
+	
 });
