@@ -104,15 +104,15 @@
 <div id="savedata" data-role="fieldcontain">             
    <div class="ui-grid-b">
 		<div class="ui-block-a">
-			<a href="#" id="jsonData" data-role="button" data-theme="a">JSON DATA</a>
+			<a href="#jsonPage" id="jsonData" data-role="button" data-theme="a">JSON DATA</a>
 		</div>
 
 		<div class="ui-block-b">
-			<a href="#" id="xmlData" data-role="button" data-theme="a">XML DATA</a>
+			<a href="#xmlPage" id="xmlData" data-role="button" data-theme="a">XML DATA</a>
 		</div>
 
 		<div class="ui-block-c">
-			<a href="#" id="wddxData" data-role="button" data-theme="a">WDDX DATA</a>
+			<a href="#csvPage" id="csvData" data-role="button" data-theme="a">CSV DATA</a>
 		</div>
 	</div>
 </div>
@@ -134,7 +134,70 @@
     
     </div>
     
-    <div data-role="page" id="engine" data-add-back-btn="true">
+<!--JSON Page-->	
+<div data-role="page" data-theme="a" id="jsonPage" data-add-back-btn="true">
+	<a href="#home" data-direction="reverse">
+			<div data-role="header" data-theme="a" align="center" >
+			 
+             <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+			
+            </div>
+	</a>
+		
+</div>
+	<div data-role="footer" data-position="fixed" data-id="home">
+        	<div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+            </div>
+  		</div>
+
+<!--XML Page-->	
+<div data-role="page" data-theme="a" id="xmlPage" data-add-back-btn="true">
+		<a href="#home" data-direction="reverse">
+			<div data-role="header" data-theme="a" align="center" >
+			 
+             <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+			
+            </div>
+		</a>
+</div>	
+<div data-role="footer" data-position="fixed" data-id="home">
+        <div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+           </div>
+  	</div>
+</div>	
+
+<!--CSV Page-->	
+<div data-role="page" data-theme="a" id="csvPage" data-add-back-btn="true">
+		<a href="#home" data-direction="reverse" style="text-decoration:none" >
+			<div data-role="header" data-theme="a" align="center" >
+			 
+             <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+			
+            </div>
+		</a>
+		
+<div data-role="footer" data-position="fixed" data-id="home">
+      <div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+            </div>
+  		</div>
+	</div>
+    
+<div data-role="page" id="engine" data-add-back-btn="true">
     	
         <div data-role="header" align="center" data-position="fixed">
         	
@@ -858,7 +921,7 @@
     <!--Date Picker Plugin by http://jtsage.com/dp-demo/-->
    	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
 	<!--<script type="text/javascript" src="js/libs/jquery.mobile.datebox.i8n.en.js"></script>-->
-	<script type="text/javascript" src="js/json.js"></script>   
+	<script type="text/javascript" src="js/json.js"></script>  
 	<script type="text/javascript" src="js/main.js"></script>
     
 </body>

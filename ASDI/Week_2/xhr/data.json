@@ -1,5 +1,7 @@
-{
-	"jsonParts": [
+
+{"jsonParts": 
+
+	[
 			
 			{
 			"groups": "Group:", "Engine",
@@ -13,9 +15,8 @@
 			"ycar": "Car Year:", "2001",
 			"mode": "Value:", "New",
 			"special": "Special Request:", "Leave On"
-		
-		},
-		{
+			},
+			{
 			"groups": "Group:", "Cabin",
 			"fullname": "Full Name:", "Rose Ayala",
 			"phone": "Phone:", "407-437-7526",
@@ -26,9 +27,9 @@
 			"cmodel": "Car Model:", "Sienna",
 			"ycar": "Car Year:", "2003",
 			"mode": "Value:", "Used",
-			"special": "Special Request:", "Do not lend."
-		},
-		{
+			"special": "Special Request:", "Do not lend"
+			},
+			{
 			"groups": "Group:", "Wheels",
 			"fullname": "Full Name:", "Eliana Colon",
 			"phone": "Phone:", "407-249-0896",
@@ -39,9 +40,9 @@
 			"cmodel": "Car Model:", "F-150",
 			"ycar": "Car Year:", "1998",
 			"mode": "Value:", "New",
-			"special": "Special Request:", "Save old."
-		},
-		{
+			"special": "Special Request:", "Save old"
+			},
+			{
 			"groups": "Group:", "Trunk",
 			"fullname": "Full Name:", "Isabella",
 			"phone": "Phone:", "407-345-0700",
@@ -52,9 +53,9 @@
 			"cmodel": "Car Model:", "Corolla",
 			"ycar": "Car Year:", "1997",
 			"mode": "Value:", "Used",
-			"special": "Special Request:", "Make sure is right."
-		},
-		{
+			"special": "Special Request:", "Make sure is right"
+			},
+			{
 			"groups": "Group:", "Exhaust",
 			"fullname": "Full Name:", "Daisy Fuentes",
 			"phone": "Phone:", "787-343-2913",
@@ -65,8 +66,8 @@
 			"cmodel": "Car Model:", "Escort",
 			"ycar": "Car Year:", "2003",
 			"mode": "Value:", "New",
-			"special": "Special Request:", "Check on no holes."
-		}
+			"special": "Special Request:", "Check on no holes"
+			}
 	]
 		
 }
