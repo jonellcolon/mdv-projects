@@ -10,10 +10,11 @@
 // Term Aug 2012
 //JSON
 $('#jsonPage').on('click', function(){
+	$('#jsonPage').empty();
         $.ajax({
-            url: "xhr/data.json",
-            type: "GET",
-            dataType: "json",
+            url: 'xhr/data.json',
+            type: 'GET',
+            dataType: 'json',
             success: function(response){
                 console.log(response);
                 for(var i=0, j=response.jsonParts.length; i<j; i++){
@@ -44,10 +45,11 @@ $('#jsonPage').on('click', function(){
 
 //XML
 $('#xmlPage').on('click', function(){
+        $('#xmlPage').empty();
         $.ajax({
-            url: "xhr/data.xml",
-            type: "GET",
-            dataType: "xml",
+            url: 'xhr/data.xml',
+            type: 'GET',
+            dataType: 'xml',
             success: function(xml){
                 $(xml).find("parts").each(function(){
 					var make = {};
@@ -79,28 +81,30 @@ $('#xmlPage').on('click', function(){
                         '</div>' +
 						'</li>'
                     ).appendTo('#xmlPage');
-                    $("xmlPage").listview("refresh");
+                    console.log(response);
                 });
             }
-     });
-       
-});
+        });
+        return false;
+    });
 
 //WDDX
-    $("#csvPage").on("click", function(){
+    $('#wddxData').on("click", function(){
+        console.log('#wddxData');
+        $('#carData').empty();
         $.ajax({
-            url      : "xhr/data.csv",
+            url      : "xhr/wddx.xml",
             type     : "GET",
-            dataType : "text",
-            success  : function(csv) {
-                console.log(csv);
+            dataType : "wddx",
+            success  : function(wddx) {
+                console.log(wddx);
             }
       });
  });
 
 // Wait until the DOM is ready
 
-$("#list").live('pageinit',function() {
+$("#list").on('pageinit',function() {
 
     var partMode,
         submit = $("#submit");
@@ -123,22 +127,22 @@ $("#list").live('pageinit',function() {
     function toggleControls(x){
         switch(x){
             case "on":
-                $("#partList").css("display", "none");
-                $("#clear").css("display", "inline");
-                $("#displayLink").css("display", "none");
-                $("#addNew").css("display", "block");
+                $("#partList").hide();
+                $("#clear").show();
+                $("#displayLink").hide();
+                $("#addNew").show();
                 break;
             case "off":
-                $("#partList").css("display", "block");
-                $("#clear").css("display", "block");
-                $("#displayLink").css("display", "block");
-                $("#addNew").css("display", "block");
-                $("#items").css("display", "none");
+                $("#partList").show();
+                $("#clear").show();
+                $("#displayLink").show();
+                $("#addNew").hide();
+                $("#items").hide();
                 break;
             default:
                 return false;
         }
-    };
+    }
 
     function storeData(key){
         //if the is no key, this is means this is a brand new item and need new key.

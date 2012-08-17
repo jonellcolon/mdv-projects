@@ -8,12 +8,16 @@
 // Jonell Colon
 // ASDI Week 2
 // Term Aug 2012
-//JSON
-$('#jsonPage').on('click', function(){
+
+$('#home').on('pageinit', function(){
+    //JSON
+    $('#jsonData').on('click', function(){
+        console.log('#jsonData');
+        $('#carData').empty();
         $.ajax({
-            url: "xhr/data.json",
-            type: "GET",
-            dataType: "json",
+            url: 'xhr/data.json',
+            type: 'GET',
+            dataType: 'json',
             success: function(response){
                 console.log(response);
                 for(var i=0, j=response.jsonParts.length; i<j; i++){
@@ -32,38 +36,38 @@ $('#jsonPage').on('click', function(){
                         '<p>' + part.mode +'</p>'+
                         '<p>' + part.special +'</p>'+
                         '</div>'
-                    ).appendTo('#jsonPage');
-                    $("#jsonPage").listview("refresh");
-                };
-            },
-			error: function(result){ console.log(result);}
-      });
-        
-});
+                    ).appendTo('#carData');
+                    console.log(response);
+                }
+            }
+        });
+        return false;
+    });
 
 
 //XML
-$('#xmlPage').on('click', function(){
+    $('#xmlData').on('click', function(){
+        console.log('#xmlData');
+        $('#carData').empty();
         $.ajax({
-            url: "xhr/data.xml",
-            type: "GET",
-            dataType: "xml",
-            success: function(xml){
-                $(xml).find("parts").each(function(){
-					var make = {};
-                    make.groups = $(this).find('groups').text();
-                    make.fullname = $(this).find('fullname').text();
-                    make.phone = $(this).find('phone').text();
-                    make.email = $(this).find('email').text();
-                    make.cpart = $(this).find('cpart').text();
-                    make.hmany = $(this).find('hmany').text();
-                    make.ctype = $(this).find('ctype').text();
-                    make.cmodel = $(this).find('cmodel').text();
-                    make.ycar = $(this).find('ycar').text();
-                    make.mode = $(this).find('mode').text();
-                    make.special = $(this).find('special').text();
+            url: 'xhr/data.xml',
+            type: 'GET',
+            dataType: 'xml',
+            success: function(response){
+                console.log(response);
+                $(response).find('parts').each(function(){
+                    var groups = $(this).find('groups').text();
+                    var fullname = $(this).find('fullname').text();
+                    var phone = $(this).find('phone').text();
+                    var email = $(this).find('email').text();
+                    var cpart = $(this).find('cpart').text();
+                    var hmany = $(this).find('hmany').text();
+                    var ctype = $(this).find('ctype').text();
+                    var cmodel = $(this).find('cmodel').text();
+                    var ycar = $(this).find('ycar').text();
+                    var mode = $(this).find('mode').text();
+                    var special = $(this).find('special').text();
                     $(''+
-						'<li>' +
                         '<div class="partsCar">'+
                         '<h2>'+ groups +'</h2>'+
                         '<p>'+ fullname +'</p>'+
@@ -76,31 +80,33 @@ $('#xmlPage').on('click', function(){
                         '<p>'+ ycar +'</p>'+
                         '<p>'+ mode +'</p>'+
                         '<p>'+ special +'</p>'+
-                        '</div>' +
-						'</li>'
-                    ).appendTo('#xmlPage');
-                    $("xmlPage").listview("refresh");
+                        '</div>'
+                    ).appendTo('#carData');
+                    console.log(response);
                 });
             }
-     });
-       
-});
+        });
+        return false;
+    });
 
 //WDDX
-    $("#csvPage").on("click", function(){
+    $('#wddxData').on("click", function(){
+        console.log('#wddxData');
+        $('#carData').empty();
         $.ajax({
-            url      : "xhr/data.csv",
+            url      : "xhr/wddx.xml",
             type     : "GET",
-            dataType : "text",
-            success  : function(csv) {
-                console.log(csv);
+            dataType : "wddx",
+            success  : function(wddx) {
+                console.log(wddx);
             }
-      });
- });
+        });
+    });
+});
 
 // Wait until the DOM is ready
 
-$("#list").live('pageinit',function() {
+$("#list").on('pageinit',function() {
 
     var partMode,
         submit = $("#submit");
@@ -123,22 +129,22 @@ $("#list").live('pageinit',function() {
     function toggleControls(x){
         switch(x){
             case "on":
-                $("#partList").css("display", "none");
-                $("#clear").css("display", "inline");
-                $("#displayLink").css("display", "none");
-                $("#addNew").css("display", "block");
+                $("#partList").hide();
+                $("#clear").show();
+                $("#displayLink").hide();
+                $("#addNew").show();
                 break;
             case "off":
-                $("#partList").css("display", "block");
-                $("#clear").css("display", "block");
-                $("#displayLink").css("display", "block");
-                $("#addNew").css("display", "block");
-                $("#items").css("display", "none");
+                $("#partList").show();
+                $("#clear").show();
+                $("#displayLink").show();
+                $("#addNew").hide();
+                $("#items").hide();
                 break;
             default:
                 return false;
         }
-    };
+    }
 
     function storeData(key){
         //if the is no key, this is means this is a brand new item and need new key.

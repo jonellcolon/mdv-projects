@@ -104,19 +104,15 @@
 <div id="savedata" data-role="fieldcontain">             
    <div class="ui-grid-b">
 		<div class="ui-block-a">
-			<a href="#jsonPage" data-role="button" data-theme="a">JSON</a>
+			<a href="#jsonPage" id="jsonData" data-role="button" data-theme="a">JSON DATA</a>
 		</div>
 
 		<div class="ui-block-b">
-			<a href="#xmlPage" data-role="button" data-theme="a">XML</a>
+			<a href="#xmlPage" id="xmlData" data-role="button" data-theme="a">XML DATA</a>
 		</div>
 
 		<div class="ui-block-c">
-			<a href="#csvPage" data-role="button" data-theme="a">CSV</a>
-		</div>
-		<div data-role="content class="ui-body-a">
-			<ul id="programlist"
-			</ul>
+			<a href="#csvPage" id="csvData" data-role="button" data-theme="a">CSV DATA</a>
 		</div>
 	</div>
 </div>
@@ -812,7 +808,7 @@
         
         <div data-role="content">
         	
-        	<form action="" method="post" id="partList">
+        	<form action="" id="partList">
             
             	<p>Input all information correctly and make sure to double check part needed for mechanical work.</p>
             
@@ -926,6 +922,7 @@
    	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
 	<!--<script type="text/javascript" src="js/libs/jquery.mobile.datebox.i8n.en.js"></script>-->
 	<script type="text/javascript" src="js/json.js"></script>  
-	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+    
 </body>
 </html>
