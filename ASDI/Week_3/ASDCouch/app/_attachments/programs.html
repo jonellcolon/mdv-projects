@@ -9,25 +9,8 @@
 
         <meta charset="utf-8">
         
-        <title>MECPART</title>
-        
-        <!--  Mobile viewport optimized: j.mp/bplateviewport -->
-        <meta name="HandheldFriendly" content="True">
-        <meta name="MobileOptimized" content="320"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <!-- Mobile IE needs ClearType for smoothing fonts -->
-        <meta http-equiv="cleartype" content="on">
-        
-        <!-- StyleSheets under here -->
-        
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-        <link rel="stylesheet" href="css/style.css" />
-        
-        <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
-        <script src="js/libs/modernizr.custom.min.js"></script>
-        <script src="jquery.couch.js"></script>
-        
+        <title>MECPART LIST</title>
+       
         <style type="text/css">
 .ui-page {
 	background-repeat: no-repeat;
@@ -41,7 +24,7 @@
 
 <body>
 	
-    <div data-role="page" id="home">
+    <div data-role="page" id="program">
     
     	<div data-role="header" align="center" data-position="fixed" data-theme="a">
     		
@@ -55,7 +38,7 @@
             
            
     		<div data-role="content">
-        		<ul data-role="listview" data-filter="true" data-inset="true" data-theme="c">
+        		<ul id="carParts" data-role="listview" data-filter="true" data-inset="true" data-theme="c">
             		<li data-role="list-divider" data-theme="a">Browse Categories:</li>
     					
                         <li><a href="#engine" data-transition="slide">
