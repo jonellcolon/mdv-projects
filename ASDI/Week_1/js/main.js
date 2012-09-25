@@ -4,10 +4,10 @@ $('#home').on('pageinit', function(){
 });
 
 
-$("#list").on('pageinit',function() {
+$('#list').on('pageinit',function() {
     
 	var partMode,
-		submit = $("#submit");
+		submit = $('#submit');
 		function resetForm(){
 				window.location.reload();
 		}
@@ -19,7 +19,7 @@ $(document).on('mobileinit',function(){
 
 // Find value of selected radio button.
 	function getSelectedRadio(){
-		var radios = $("#mode");
+		var radios = $('#mode');
 		for(var i=0; i < radios.length; i++){
 			if(radios[i].checked){
 				partMode = radios[i].value;
@@ -31,17 +31,17 @@ $(document).on('mobileinit',function(){
 	function toggleControls(n){
 		switch(n){
 			case "on":
-				$("#partList").hide();
-				$("#clear").show();
-				$("#displayLink").hide();
-				$("#addNew").show();
+				$('#partList').hide();
+				$('#clear').show();
+				$('#displayLink').hide();
+				$('#addNew').show();
 				break;
 			case "off":	
-				$("#partList").show();
-				$("#clear").show();
-				$("#displayLink").show();
-				$("#addNew").hide();
-				$("#items").hide();
+				$('#partList').show();
+				$('#clear').show();
+				$('#displayLink').show();
+				$('#addNew').hide();
+				$('#items').hide();
 				break;
 			default:
 				return false;
@@ -58,23 +58,25 @@ $(document).on('mobileinit',function(){
 		
 		getSelectedRadio();
 		var item		= {};
-			item.groups	= ["Group: ", $("#groups").val()];
-			item.fullname = ["Full Name: ", $("#fullname").val()];
-			item.phone	= ["Phone Number: ", $("#phone").val()];
-			item.email	= ["E-Mail: ", $("#email").val()];
-			item.cpart	= ["Car Part: ", $("#cpart").val()];
-			item.hmany	= ["How Many: ", $("#hmany").val()];
-			item.ctype	= ["Car Type: ", $("#ctype").val()];
-			item.cmodel	= ["Car Model: ", $("#cmodel").val()];
-			item.ycar	= ["Car Year: ", $("#ycar").val()];
+			item.groups	= ["Group: ", $('#groups').val()];
+			item.fullname = ["Full Name: ", $('#fullname').val()];
+			item.phone	= ["Phone Number: ", $('#phone').val()];
+			item.email	= ["E-Mail: ", $('#email').val()];
+			item.cpart	= ["Car Part: ", $('#cpart').val()];
+			item.hmany	= ["How Many: ", $('#hmany').val()];
+			item.ctype	= ["Car Type: ", $('#ctype').val()];
+			item.cmodel	= ["Car Model: ", $('#cmodel').val()];
+			item.ycar	= ["Car Year: ", $('#ycar').val()];
 			item.mode	= ["Value: ", partMode];
-			item.date	= ["Date: ", $("#date").val()];
-			item.special	= ["Special Request: ", $("#special").val()];
+			item.date	= ["Date: ", $('#date').val()];
+			item.special	= ["Special Request: ", $('#special').val()];
 
 			//Save data to Local Storage: Stringify.
+			console.log('id before local storage Save:', id);
 			localStorage.setItem(id, JSON.stringify(item));
 			alert("Part Information Saved!");
 			window.location.reload();
+			resetForm();
 			
 	}
 
@@ -87,7 +89,7 @@ $(document).on('mobileinit',function(){
             storeData(data);
         };
         $(document).ready(function(){
-            var pList = $("#partList");
+            var pList = $('#partList');
             pList.validate({
                 invalidHandler: function(form, validator){},
                 submitHandler: function(){
@@ -109,7 +111,7 @@ $(document).on('mobileinit',function(){
 		makeDiv.attr("id", "items");
 		var makeList = $('<ul>');
 		makeDiv.append(makeList);
-		$("#list").append(makeDiv);
+		$('#list').append(makeDiv);
 		$('#items').show();
 		for(var i=0, len=localStorage.length; i < len;i++){
 			var makeli = $('<li>');
@@ -161,7 +163,7 @@ $(document).on('mobileinit',function(){
 		editLink.attr("href", "#");
 		editLink.attr("key", key);
 		var editText = "Edit Item";
-		$(editLink).on("click", editItem);
+		$(editLink).on('click', editItem);
 		editLink.text(editText);
 		linksLi.append(editLink);
 
@@ -174,7 +176,7 @@ $(document).on('mobileinit',function(){
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Item";
-		$(deleteLink).on("click", deleteItem);
+		$(deleteLink).on('click', deleteItem);
 		deleteLink.html(deleteText);
 		linksLi.appendTo(deleteLink);
 		}
@@ -184,21 +186,21 @@ $(document).on('mobileinit',function(){
 // Grab the data from our item.
 		var value = localStorage.getItem(this.key);
 		var item = JSON.parse(value);
-		var save = $("submit");
+		var save = $('#submit');
 
 		//Show the form.
 		toggleControls("off");
 
 		// Populate the form field.
-		$("#groups").val(item.groups[1]);
-		$("#fullname").val(item.fullname[1]);
-		$("#phone").val(item.phone[1]);
-		$("#email").val(item.email[1]);
-		$("#cpart").val(item.cpart[1]);
-		$("#hmany").val(item.hmany[1]);
-		$("#ctype").val(item.ctype[1]);
-		$("#cmodel").val(item.cmodel[1]);
-		$("#ycar").val(item.ycar[1]);
+		$('#groups').val(item.groups[1]);
+		$('#fullname').val(item.fullname[1]);
+		$('#phone').val(item.phone[1]);
+		$('#email').val(item.email[1]);
+		$('#cpart').val(item.cpart[1]);
+		$('#hmany').val(item.hmany[1]);
+		$('#ctype').val(item.ctype[1]);
+		$('#cmodel').val(item.cmodel[1]);
+		$('#ycar').val(item.ycar[1]);
 		var radios = document.forms[0].mode;
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].val == "Used" && item.mode[1] == "Used"){
@@ -207,16 +209,16 @@ $(document).on('mobileinit',function(){
 				radios[i].attr("checked", "checked");
 			}
 		}
-		$("#date").val(item.date[1]);
-		$("#special").val(item.special[1]);
+		$('#date').val(item.date[1]);
+		$('#special').val(item.special[1]);
 
 		//Remove the initial listener from input 
-		save.off("click", storeData);
+		save.off('click', storeData);
 		//Change Submit button value to edit button
-		$("#submit").on = "Edit Content";
-		var editSubmit = $("#submit");
+		$('#submit').on = "Edit Content";
+		var editSubmit = $('#submit');
 		//Save the key value established in this function as a property
-		editSubmit.on("click", validate);
+		editSubmit.on('click', validate);
 		editSubmit.key = this.key;	
 	}
 
@@ -251,13 +253,12 @@ $(document).on('mobileinit',function(){
     $.mobile.page.prototype.options.degradeInputs.date = true;
   });
 
-
 // Set Link & Submit Click Events
-	var displayLink = $("#displayLink");
-	displayLink.on("click", getData);
-	var clearLink = $("#clear");
-	clearLink.on("click", clearLocal);
-	var save = $("#submit");
-	save.on("click", validate);
+	var displayLink = $('#displayLink');
+	displayLink.on('click', getData);
+	var clearLink = $('#clear');
+	clearLink.on('click', clearLocal);
+	var save = $('#submit');
+	save.on('click', validate);
 
 });	
