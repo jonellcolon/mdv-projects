@@ -810,7 +810,7 @@
             	<small>
                 	<a href="#" id="clear">Clear Local Storage</a>
                 	<a href="#" id="displayLink">View Parts Needed</a>
-                	<a href="#list" id="addNew" style="display:none;">Add New Part</a>
+                	<a href="#list" id="addNew">Add New Part</a>
             	</small>
        		</nav>
         </div>
@@ -819,6 +819,33 @@
             	<ul>
                 	<li><a href="index.html" data-icon="home">Home</a></li>
                     <li><a href="#list" data-icon="plus">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+            </div>
+  		</div>
+    
+    </div>
+    
+        <div data-role="page" id="showDataPage" data-add-back-btn="true">
+    	
+        <div data-role="header" align="center" data-position="fixed">
+        	
+            <img src="images/mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+            
+        </div>
+        
+        <div data-role="content">
+        	<ul data-role="listview" data-filter="true" data-inset="true">
+        		
+            </ul>
+            
+        </div>
+  
+        <div data-role="footer" data-position="fixed" data-id="home">
+        	<div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
                     <li><a href="#contact" data-icon="info">Contact</a></li>
                 </ul>
             </div>
@@ -835,11 +862,12 @@
 	<!--JQuery Mobile JS and Validate-->
 	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 	<script  type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery.mobile.datebox.min.js"></script>
    	
-    <!--Date Picker Plugin by http://jtsage.com/dp-demo/-->
+    <!--Date Picker Plugin by http://jtsage.com/dp-demo/
    	<link rel="stylesheet" href="jquery.ui.datepicker.mobile.css" /> 
     <script src="jQuery.ui.datepicker.js"></script>
-    <script src="jquery.ui.datepicker.mobile.js"></script>
+    <script src="jquery.ui.datepicker.mobile.js"></script>-->
 
 	<!--Local Script-->
     <script type="text/javascript" src="js/json.js"></script>

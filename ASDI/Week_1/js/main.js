@@ -1,6 +1,52 @@
-// Wait until the DOM is ready
 $('#home').on('pageinit', function(){
-	
+	//code needed for home page goes here.
+});	
+
+
+
+$('#engine').on('pageinit', function(){
+	//code needed for engine page goes here.
+});
+
+
+
+$('#cabin').on('pageinit', function(){
+	//code needed for cabin page goes here.
+});
+
+
+
+$('#wheels').on('pageinit', function(){
+	//code needed for wheels page goes here.
+});
+
+
+
+$('#exhaust').on('pageinit', function(){
+	//code needed for exhaust page goes here.
+});
+
+
+
+$('#trunk').on('pageinit', function(){
+	//code needed for trunk page goes here.
+});
+
+
+
+$('#body').on('pageinit', function(){
+	//code needed for body page goes here.
+});
+
+
+
+$('#contact').on('pageinit', function(){
+	//code needed for contact page goes here.
+});
+
+
+$('#feed').on('pageinit', function(){
+	//code needed for feed page goes here.
 });
 
 
@@ -26,7 +72,7 @@ $(document).on('mobileinit',function(){
 			}
 		}
 
-	}
+	};
 
 	function toggleControls(n){
 		switch(n){
@@ -48,15 +94,15 @@ $(document).on('mobileinit',function(){
 		}
 	}
 
-	function storeData(key){
+	var storeData = function (key){
 		//if the is no key, this is means this is a brand new item and need new key.
 		if(!key){
 		var id = Math.floor(Math.random()*100000001);
 		}else{
 			id = key;
 		}
-		
 		getSelectedRadio();
+		
 		var item		= {};
 			item.groups	= ["Group: ", $('#groups').val()];
 			item.fullname = ["Full Name: ", $('#fullname').val()];
@@ -72,13 +118,11 @@ $(document).on('mobileinit',function(){
 			item.special	= ["Special Request: ", $('#special').val()];
 
 			//Save data to Local Storage: Stringify.
-			console.log('id before local storage Save:', id);
 			localStorage.setItem(id, JSON.stringify(item));
 			alert("Part Information Saved!");
-			window.location.reload();
-			resetForm();
+			$.mobile.changePage("#list");
 			
-	}
+	};
 
 	$.validator.setDefaults({
     	ignore: ""
@@ -86,7 +130,7 @@ $(document).on('mobileinit',function(){
 
     function validate(){
         var parsePartListForm = function(data){
-            storeData(data);
+            storeData(key);
         };
         $(document).ready(function(){
             var pList = $('#partList');
@@ -100,12 +144,14 @@ $(document).on('mobileinit',function(){
         });
     }
 
-	function getData(){
+	var getData = function (){
 		toggleControls('on');
 		if(localStorage.length === 0){
 			alert("There is no data in local storage, default data added.");
 			autoFillData();
 		}
+		
+	};
 		// Write Data into Local Storage
 		var makeDiv = $('<div>');
 		makeDiv.attr("id", "items");
@@ -132,9 +178,9 @@ $(document).on('mobileinit',function(){
 			}
 			makeItemLinks(localStorage.key(i), linksLi); // Create our edit and delete buttons/links.
 
-		};
-
 	};
+
+	
 
 //Get the image for the right  category
 	function getImage(groups, makeSubList){
@@ -143,28 +189,29 @@ $(document).on('mobileinit',function(){
 		var newImg = $("<img />");
 		var setSrc = newImg.attr("src", "images/" + groups + ".png");
 		imageLi.append(newImg);	
-	}
+	};
 
 //Auto Populate Local Storage
-	function autoFillData(json){
+	var autoFillData = function (){
 		//Store JSON into local storage.
-		for(var n in json){
+		for (var n in json){
 			var id = Math.floor(Math.random()*100000001);
 			localStorage.setItem(id, JSON.stringify(json[n]));
 		}
 
-	}
+	};
 
 //Make items links
 	function makeItemLinks(key, linksLi){
 		
 // add edit single item link
 		var editLink = $('<a>');
-		editLink.attr("href", "#");
-		editLink.attr("key", key);
+		editLink.href= "#";
+		editLink.id = "editLink";
+		editLink.key = key;
 		var editText = "Edit Item";
-		$(editLink).on('click', editItem);
-		editLink.text(editText);
+		editLink.on('click', editItem);
+		editLink.html(editText);
 		linksLi.append(editLink);
 
 // Add line break
@@ -174,19 +221,20 @@ $(document).on('mobileinit',function(){
 // Add delete single item link
 		var deleteLink = $('<a>');
 		deleteLink.href = "#";
+		deleteLink.attr("id", "deleteItem");
 		deleteLink.key = key;
 		var deleteText = "Delete Item";
 		$(deleteLink).on('click', deleteItem);
 		deleteLink.html(deleteText);
 		linksLi.appendTo(deleteLink);
-		}
+		};
 
-		function editItem(){
-		var thisKey = $(this).attr("key");
+		var editItem = function (){
+		//var thisKey = $(this).attr("key");
 // Grab the data from our item.
 		var value = localStorage.getItem(this.key);
-		var item = JSON.parse(value);
-		var save = $('#submit');
+		var item = jquery.parseJSON(value);
+		var save = $('submit');
 
 		//Show the form.
 		toggleControls("off");
@@ -215,15 +263,15 @@ $(document).on('mobileinit',function(){
 		//Remove the initial listener from input 
 		save.off('click', storeData);
 		//Change Submit button value to edit button
-		$('#submit').on = "Edit Content";
+		$('#submit').val("Edit Content");
 		var editSubmit = $('#submit');
 		//Save the key value established in this function as a property
 		editSubmit.on('click', validate);
 		editSubmit.key = this.key;	
-	}
-
+	};
+	
 // Delete Item Data
-	function deleteItem(){
+	var deleteItem = function (){
 		var ask = confirm("Are you sure you want to delete item?");
 		if (ask){
 			localStorage.removeItem(this.key);
@@ -233,10 +281,10 @@ $(document).on('mobileinit',function(){
 			alert("Item was NOT deleted.");
 		}
 
-	}
+	};
 
 //Clear Local Storage
-	function clearLocal(){
+	var clearLocal = function (){
 		if(localStorage.length === 0){
 			alert("There is no data to clear.");
 		}else{
@@ -245,7 +293,7 @@ $(document).on('mobileinit',function(){
 			window.location.reload();
 			return false;
 		}
-	}
+	};
 
 // Date Picker Script
 	//reset type=date inputs to text
