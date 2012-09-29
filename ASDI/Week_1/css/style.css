@@ -45,7 +45,7 @@ label.error{display:block; margin:10px 0; color:#cc0000;}
 .ui-bar-g button {
 	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
-.ui-body-g,
+.ui-body-a,
 .ui-overlay-g {
 	border: 1px solid #6e6e6e /*{g-body-border}*/;
 	color: #4d4d4d /*{g-body-color}*/;

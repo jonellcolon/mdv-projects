@@ -45,8 +45,25 @@ $('#contact').on('pageinit', function(){
 });
 
 
-$('#feed').on('pageinit', function(){
-	//code needed for feed page goes here.
+$('#tweets').on('pageinit', function(){
+	
+	function listTweets(data) {
+	var output = '<ul data-role="listview" data-theme="a">';
+	
+	$.each(data, function(key, val) {
+		var text = data[key].text;
+		var thumbnail = data[key].user.profile_image_url;
+		var name = data[key].user.name;
+		
+		output += '<li>';
+		output += '<img src="' + thumbnail +'" alt="Photo of ' + name + '">';
+		output += '<div>' + text + '</div>';
+		output += '</li>';		
+	}); //go through each tweet
+	output += '</ul>';
+	$('#tweetlist').html(output);
+}
+		
 });
 
 
@@ -143,7 +160,7 @@ $(document).on('mobileinit',function(){
             });
         });
     }
-
+	
 	var getData = function (){
 		toggleControls('on');
 		if(localStorage.length === 0){
@@ -228,17 +245,17 @@ $(document).on('mobileinit',function(){
 		deleteLink.html(deleteText);
 		linksLi.appendTo(deleteLink);
 		};
-
+		
 		var editItem = function (){
 		//var thisKey = $(this).attr("key");
 // Grab the data from our item.
 		var value = localStorage.getItem(this.key);
 		var item = jquery.parseJSON(value);
 		var save = $('submit');
-
+		
 		//Show the form.
 		toggleControls("off");
-
+		console.log("Am want to show you.");
 		// Populate the form field.
 		$('#groups').val(item.groups[1]);
 		$('#fullname').val(item.fullname[1]);
@@ -309,4 +326,23 @@ $(document).on('mobileinit',function(){
 	var save = $('#submit');
 	save.on('click', validate);
 
-});	
+})
+
+
+function listTweets(data) {
+	console.log(data);
+	var output = '<ul data-role="listview" data-theme="a">';
+	
+	$.each(data, function(key, val) {
+		var text = data[key].text;
+		var thumbnail = data[key].user.profile_image_url;
+		var name = data[key].user.name;
+		
+		output += '<li>';
+		output += '<img src="' + thumbnail +'" alt="Photo of ' + name + '">';
+		output += '<div>' + text + '</div>';
+		output += '</li>';		
+	}); //go through each tweet
+	output += '</ul>';
+	$('#tweetlist').html(output);
+}
