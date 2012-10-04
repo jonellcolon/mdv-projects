@@ -1,3 +1,148 @@
+
+
+// JSON DATA
+
+/*$('#jsonData').on("pageinit", function(){
+	$('#jsonlist').empty();
+	$.ajax({
+		url: "xhr/data.json",
+		type: "GET",
+		dataType: "json",
+		success: function(response){
+			console.log(response);
+				for (var i = 0 , j = response.car.length; i<j; i++){
+					var part = response.car[i];
+					$(''+
+						'<li>' +
+								'<img src="images/' + part.groups[1] + '.png">' +
+								'<p>' + part.fullname[0] + part.fullname[1] +'</p>'+
+								'<p>' + part.phone[0] + part.phone[1] +'</p>'+
+								'<p>' + part.email[0] + part.email[1] +'</p>'+
+								'<p>' + part.cpart[0] + part.cpart[1] +'</p>'+
+								'<p>' + part.hmany[0] + part.hmany[1] +'</p>'+
+								'<p>' + part.ctype[0] + part.ctype[1] +'</p>'+
+								'<p>' + part.cmodel[0] + part.cmodel[1] +'</p>'+
+								'<p>' + part.ycar[0] + part.ycar[1] +'</p>'+
+								'<p>' + part.mode[0] + part.mode[1] +'</p>'+
+								'<p>' + part.special[0] + part.special[1] +'</p>'+
+						'</li>'
+					).appendTo('#jsonlist');
+				};
+		},
+		error: function(result){ console.log(result);}
+	});
+
+});
+*/
+var content = '<ul data-role="listview" data-theme="c">';
+$.getJSON("xhr/data.json",
+	function(data){
+		$.each(data.car, function(i,car){
+			content += '<li>';
+			content += '<p>' + car.groups + '</p>';
+			content += '<p>' + car.fullname + '</p>'; 
+			content += '<p>' + car.phone + '</p>';
+			content += '<p>' + car.email + '</p>';
+			content += '<p>' + car.cpart + '</p>';
+			content += '<p>' + car.hmany + '</p>';
+			content += '<p>' + car.ctype + '</p>';
+			content += '<p>' + car.cmodel + '</p>';
+			content += '<p>' + car.ycar + '</p>';
+			content += '<p>' + car.mode + '</p>';
+			content += '<p>' + car.special + '</p>';
+			content += '</li>';
+			content += '</ul>';
+			$(content).appendTo("#jsonlist");
+	});
+});
+	
+
+// XML DATA
+
+$('#xmlData').on('pageinit',function(){
+		$('#xmllist').empty();
+		$.ajax({
+			url		: "xhr/data.xml",
+			type	: "GET",
+			dataType: "xml",
+			success	: function(xml){
+				$(xml).find("part").each(function(){
+					var car = {};
+					    car.groups 		= $(this).find("Groups").text();
+					    car.fullname 			= $(this).find("Full Name").text();
+					    car.phone 		= $(this).find("Phone").text();
+					    car.email 			= $(this).find("Email").text();
+					    car.cpart 			= $(this).find("Car Part").text();
+						car.hmany 		= $(this).find("How Many").text();
+					    car.ctype 			= $(this).find("Car Type").text();
+					    car.cmodel 			= $(this).find("Car Model").text();
+						car.ycar 			= $(this).find("Car Year").text();
+						car.special 			= $(this).find("Special").text();
+						console.log(car);
+						
+							$(''+ '<ul data-role="listview" data-theme="c">' +
+									'<li>' +
+											'<img src="images/' + car.groups + '.png">' +
+											'<p>' + car.fullname +'</p>' + 
+											'<p>' + car.phone +'</p>' +
+											'<p>' + car.email +'</p>' +
+											'<p>' + car.cpart +'</p>' +
+											'<p>' + car.hmany +'</p>' +
+											'<p>' + car.ctype +'</p>' +
+											'<p>' + car.cmodel +'</p>' +
+											'<p>' + car.ycar +'</p>' +
+											'<p>' + car.mode +'</p>' +
+											'<p>' + car.special +'</p>' +
+									'</li>' +
+								'</ul>'
+							).appendTo('#xmllist');
+				});
+			}
+
+		});
+
+	});	
+
+
+
+// CSV DATA
+
+
+$('#csvData').on('pageinit',function(){
+		$.ajax({
+			url		: "xhr/data.csv",
+			type	: "GET",
+			dataType: "text",
+			success	: function(csv){
+				console.log(csv);
+				var cars = csv.split("\n");
+				for (var carNum = 0; carNum < cars.length; carNum++){
+					var row = cars[carNum];
+					var columns = row.split(",");
+					console.log(columns);
+						$(''+
+							'<ul data-role="listview" data-theme="c">' +
+							'<li>' +
+									'<img src="images/' + columns[0] + '.png">' +
+									'<p>' + columns[1] +'</p>' +
+									'<p>' + columns[2] +'</p>' + 
+									'<p>' + columns[3] +'</p>' + 
+									'<p>' + columns[4] +'</p>' +   
+								'</a>' +
+							'</li>' +
+							'</ul>'
+						).appendTo('#csvlist');
+				}
+			},
+			error	: function(result){ console.log(result);}
+		});
+
+	});	
+
+
+// Form Data
+
+
 $('#home').on('pageinit', function(){
 	//code needed for home page goes here.
 });	
@@ -320,7 +465,6 @@ $(document).on('mobileinit',function(){
 
 
 function listTweets(data) {
-	console.log(data);
 	var output = '<ul data-role="listview" data-theme="c">';
 	
 	$.each(data, function(key, val) {
@@ -352,30 +496,5 @@ function listTweets(data) {
 	}); //go through each tweet
 	output += '</ul>';
 	$('#tweetlist').html(output);
+	
 }
-
-// JSON DATA
-
-
-
-
-
-
-
-
-
-
-
-
-// XML DATA
-
-
-
-
-
-
-
-
-
-
-// CSV DATA
