@@ -68,16 +68,16 @@ $('#xmlData').on('pageinit',function(){
 			success	: function(xml){
 				$(xml).find("part").each(function(){
 					var car = {};
-					    car.groups 		= $(this).find("Groups").text();
-					    car.fullname 			= $(this).find("Full Name").text();
-					    car.phone 		= $(this).find("Phone").text();
-					    car.email 			= $(this).find("Email").text();
-					    car.cpart 			= $(this).find("Car Part").text();
-						car.hmany 		= $(this).find("How Many").text();
-					    car.ctype 			= $(this).find("Car Type").text();
-					    car.cmodel 			= $(this).find("Car Model").text();
-						car.ycar 			= $(this).find("Car Year").text();
-						car.special 			= $(this).find("Special").text();
+					    car.groups 		= $(this).find("groups").text();
+					    car.fullname 			= $(this).find("fullname").text();
+					    car.phone 		= $(this).find("phone").text();
+					    car.email 			= $(this).find("email").text();
+					    car.cpart 			= $(this).find("cpart").text();
+						car.hmany 		= $(this).find("hmany").text();
+					    car.ctype 			= $(this).find("ctype").text();
+					    car.cmodel 			= $(this).find("cmodel").text();
+						car.ycar 			= $(this).find("ycar").text();
+						car.special 			= $(this).find("special").text();
 						console.log(car);
 						
 							$(''+ '<ul data-role="listview" data-theme="c">' +
