@@ -1,29 +1,523 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+
+<!-- Jonell Colon -->
+<!-- ASDI -->
+
 <html>
-  <head>
-    <title>My New CouchApp</title>
-    <link rel="stylesheet" href="style/main.css" type="text/css">
-  </head>
-  <body>
-    <div id="account"></div>
 
-    <h1>Generated CouchApp</h1>
+	<head>
+		<meta charset="utf-8">
+        
+        <title>MECPART</title>
+        
+        <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="HandheldFriendly" content="True"/>
+        <meta name="MobileOptimized" content="320"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Mobile IE needs ClearType for smoothing fonts -->
+        <meta http-equiv="cleartype" content="on">
+        
+        <!-- StyleSheets under here -->
+        
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="style.css" />
+        
+        <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+        <script src="modernizr.custom.min.js"></script>
 
-    <div id="profile"></div>
-    <div id="items"></div>
+       <style type="text/css">
+            .ui-page {
+	       background-repeat: no-repeat;
+	       background-size: cover;
+	       background: transparent url(background.png)
+	       }
+        </style>
+        
+</head>
 
-    <div id="sidebar">
-      <p>Edit welcome message.</p>
-      <p>Ideas: You could easily turn this into a photo sharing app, or a grocery list, or a chat room.</p>
+<body>
+	
+    <div data-role="page" id="home">
+    
+    	<div data-role="header" align="center" data-position="fixed" data-theme="a">
+    		
+           <img src="mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="45"/>
+            
+    	</div>
+        		
+        	<!--Call To Action Image-->
+        	  <img src="calltoaction.png" alt="CTA" height="223" class="ui-shadow" onclick="location.href='#list'" data-transition="slide" />
+           
+    		<div data-role="content">
+        		<ul data-role="listview" data-filter="true" data-inset="true" data-theme="c">
+            		<li data-role="list-divider" data-theme="a">Browse Categories:</li>
+    					
+                        <li><a href="#engine" data-transition="slide">
+                        	<img src="engine.png" />
+                				<h3>Engine</h3>
+                                <p>Search under the hood.</p>
+                    			</a></li>
+                                
+     					<li><a href="#cabin" data-transition="slide">
+                        	<img src="cabin.png" />
+                				<h3>Cabin</h3>
+                                <p>Comfort and security.</p>
+                    			</a></li>
+                                
+   	 					<li><a href="#wheels" data-transition="slide">
+                        	<img src="wheels.png" />
+                				<h3>Wheels</h3>
+                                <p>Air tight comfort.</p>
+                    			</a></li>
+         
+                        <li><a href="#exhaust" data-transition="slide">
+                        	<img src="exhaust.png" />
+                				<h3>Exhaust</h3>
+                                <p>Smoke free engine secure.</p>
+                    			</a></li>
+         
+                        <li><a href="#trunk" data-transition="slide">
+                        	<img src="trunk.png" />
+                				<h3>Trunk</h3>
+                                <p>See what fits.</p>
+                    			</a></li>
+                
+                        <li><a href="#body" data-transition="slide">
+                        	<img src="body.png" />
+                				<h3>Body</h3>
+                                <p>Beauty and confidence.</p>
+                    			</a></li>
+                    			
+                    	<li><a href="#viewData" data-transition="slide">
+                        	<img src="" />
+                				<h3>View All</h3>
+                                <p>View All Data</p>
+                    			</a></li>
+                                
+                        <li><a href="#tweets" data-transition="slide">
+                        	<img src="" />
+                				<h3>Latests Parts</h3>
+                                <p>Check what's new.</p>
+                    			</a></li>
+                  </ul>
+             </div> 
+            
+   			<!--<a href="additem.html"><strong>Add Car Part</strong></a>-->
+            <!--<input type="button" onclick="location.href='additem.html'" value="Add Car Part"><br />-->
+        <div data-role="footer" data-position="fixed" data-id="home">
+        	<div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home" data-transition="slide">Home</a></li>
+                    <li><a href="#list" data-icon="plus" data-transition="slide">Add</a></li>
+                    <li><a href="#contact" data-icon="info" data-transition="slide">Contact</a></li>
+                </ul>
+            </div>
+  		</div>
+    
     </div>
-  </body>
-  <script src="vendor/couchapp/loader.js"></script>
-  <script type="text/javascript" charset="utf-8">
-    $.couch.app(function(app) {
-      $("#account").evently("account", app);
-      $("#profile").evently("profile", app);
-      $.evently.connect("#account","#profile", ["loggedIn","loggedOut"]);
-      $("#items").evently("items", app);
-    });
-  </script>
+    
+    <div data-role="page" id="engine" data-add-back-btn="true">
+    	
+        <div data-role="header" align="center" data-position="fixed">
+        	
+            
+         	
+            <img src="mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+         
+        	
+            
+        </div>
+        
+        <div data-role="content" class="ui-body-c">
+        	<ul id="engine" data-role="listview">
+        		
+            </ul>
+        </div>
+  
+        <div data-role="footer" data-position="fixed" data-id="home">
+        	<div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+            </div>
+  		</div>
+    
+    </div>
+    
+    <div data-role="page" id="cabin" data-add-back-btn="true">
+    	
+        <div data-role="header" align="center" data-position="fixed">
+         
+        	
+            <img src="mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+            
+        </div>
+        
+        <div data-role="content" class="ui-body-c">
+        	<ul id="cabin" data-role="listview">
+        		
+            </ul>
+        </div>
+  
+        <div data-role="footer" data-position="fixed" data-id="home">
+        	<div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+            </div>
+  		</div>
+    
+    </div>
+    
+    <div data-role="page" id="wheels" data-add-back-btn="true">
+    	
+        <div data-role="header" align="center" data-position="fixed">
+        	
+            <img src="mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+            
+        </div>
+        
+        <div data-role="content">
+        	<ul data-role="listview" data-filter="true" data-inset="true">
+        		
+            </ul>
+        </div>
+  
+        <div data-role="footer" data-position="fixed" data-id="home">
+        	<div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+            </div>
+  		</div>
+    
+    </div>
+    
+    <div data-role="page" id="exhaust" data-add-back-btn="true">
+    	
+        <div data-role="header" align="center" data-position="fixed">
+        	
+            <img src="mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+            
+        </div>
+        
+        <div data-role="content">
+        	<ul data-role="listview" data-filter="true" data-inset="true">
+            	
+            </ul>
+        </div>
+  
+        <div data-role="footer" data-position="fixed" data-id="home">
+        	<div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+            </div>
+  		</div>
+    
+    </div>
+    
+    <div data-role="page" id="trunk" data-add-back-btn="true">
+    	
+        <div data-role="header" align="center" data-position="fixed">
+        	
+            <img src="mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+            
+        </div>
+        
+        <div data-role="content">
+        	<ul data-role="listview" data-filter="true" data-inset="true">
+        		
+            </ul>
+        </div>
+  
+        <div data-role="footer" data-position="fixed" data-id="home">
+        	<div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+            </div>
+  		</div>
+    
+    </div>
+    
+    <div data-role="page" id="body" data-add-back-btn="true">
+    	
+        <div data-role="header" align="center" data-position="fixed">
+        	
+            <img src="mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+            
+        </div>
+        
+        <div data-role="content">
+        	<ul data-role="listview" data-filter="true" data-inset="true">
+        		
+            </ul>
+        </div>
+  
+        <div data-role="footer" data-position="fixed" data-id="home">
+        	<div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+            </div>
+  		</div>
+    
+    </div>
+    
+    <div data-role="page" id="contact" data-add-back-btn="true">
+    	
+        <div data-role="header" data-position="fixed" align="center">
+        	
+            <img src="mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+            
+        </div>
+        
+        <div data-role="content">
+        	<ul data-role="listview" data-inset="true">
+            	<li data-role="list-divider">MECPART HELP</li>
+                <li>12345 FullSail University Blvd. Orlando, Fl. 32826</li>
+                <li>info@mecparthelp.com</li>
+                <li>(407) 543-4356</li>
+            </ul>
+        </div>
+       
+        <div data-role="content">
+        	<div data-role="collapsible-set">
+            <li data-role="list-divider">Other Locations:</li><br />
+                <div data-role="collapsible" data-collapsed="true" data-theme="a">
+                    <h3>Oviedo</h3>
+                    <p>2878 Oviedo Blvd. Oviedo, Fl. 32765</p>
+                    <p>(407) 342-9888</p>
+                </div>
+                
+                <div data-role="collapsible" data-collapsed="true" data-theme="a">
+                    <h3>Lakeland</h3>
+                    <p>678 Rocky Ave. Lakeland, Fl. 38789</p>
+                    <p>(321) 432-2343</p>
+                </div>
+                
+                 <div data-role="collapsible" data-collapsed="true" data-theme="a">
+                    <h3>Miami</h3>
+                    <p>7678 Lovely Ln. Miami, Fl. 23678</p>
+                    <p>(305) 872-7265</p>
+                </div>
+            </div>
+                        
+        </div>
+  
+        <div data-role="footer" data-position="fixed" data-id="home">
+        	<div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+            </div>
+  		</div>
+    
+    </div>
+    
+    <div data-role="page" id="tweets" data-title="Tweets" data-add-back-btn="true">
+        
+        <div data-role="header" data-position="fixed" data-id="mec_header">
+        	
+            <center>
+            <img src="mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+            </center>  
+        
+        </div>
+      
+        <div data-role="content" id="tweetlist">
+        
+        </div><!--content-->
+  
+        <div data-role="footer" data-position="fixed" data-id="home">
+        	<div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+          	</div>
+  		</div>
+    </div><!--page-->
+    
+    
+   <div data-role="page" id="viewData" data-title="Data" data-add-back-btn="true">
+        
+        <div data-role="header" data-position="fixed" data-id="mec_header">
+        	
+            <center>
+            <img src="mecpartlogo.png" alt="logo" hspace="10" vspace="5" height="30" />
+            </center>  
+        
+        </div>
+      
+        <div data-role="content">
+        	<ul data-role="listview" data-filter="true" data-inset="true">
+        		
+            </ul>
+        </div>
+  
+        <div data-role="footer" data-position="fixed" data-id="home">
+        	<div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus" data-ajax="false">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+          	</div>
+  		</div>
+    </div><!--page-->
+    
+    <div data-role="page" id="list" data-add-back-btn="true">
+    	
+        <div data-role="header" align="center" data-position="fixed">
+        	
+        	<img src="mecpartlogo.png" alt="logo" hspace="10" vspace="3" height="30" />
+            
+        </div>
+        
+        <div data-role="content">
+        	
+        	<form action="" id="partList">
+            
+            	<p>Input all information correctly and make sure to double check part needed for mechanical work.</p>
+            
+                <p><i>* Fields are required.</i></p>
+                
+                <div data-role="fieldcontain">
+                    <label for="groups"><font color="#FF0000">(*)</font> Description:</label>
+                    <select name="listmenu" id="groups" data-native-menu="false">
+                      <option data-placeholder="true">-- Choose One --</option>
+                          <option value="engine">Engine</option>
+                          <option value="cabin">Cabin</option>
+                          <option value="wheels">Wheels</option>
+                          <option value="exhaust">Exhaust</option>
+                          <option value="trunk">Trunk</option>
+                          <option value="body">Body</option>
+                    </select>
+                  </div>
+            	
+                <div data-role="fieldcontain">
+                	<p><label for="fullname"><font color="#FF0000">(*)</font> Customer Name: </label>		  
+                	<input type="text" id="fullname" autocomplete="on" placeholder="John Smith" class="required" /></p>
+                
+                
+                
+                	<p><label for="phone"><font color="#FF0000">(*)</font> Phone Number: </label>
+                	<input type="tel" id="phone" autocomplete="on" placeholder="555-555-5555" class="required" /></p>
+                
+                
+                
+                	<p><label for="email"><font color="#FF0000">(*)</font> E-Mail: </label>
+                	<input type="email" id="email" autocomplete="on" placeholder="example@address.com" class="required" /></p>
+                </div>
+               
+                <div data-role="fieldcontain">
+                    <p><label for="cpart">Part Needed:</label>
+                    <input type="text" id="cpart"></p>
+                
+                
+                    <p><label for="hmany">How Many?</label>
+                    <input type="range" name="hmany" value="1" min="1" max="5" id="hmany"></p>
+               
+                
+        		
+                    <p><label for="ctype">Car Type:</label> 
+                    <input type="text" id="ctype"></p>
+                
+                
+         		
+                    <p><label for="cmodel">Car Model:</label>
+                    <input type="text" id="cmodel"></p>
+                
+         
+         		
+                    <p><label for="ycar">Year:</label>
+                    <input type="text" id="ycar"></p>
+                </div>
+                
+         			<div data-role="fieldcontain">
+                    	<fieldset data-role="controlgroup" data-type="horizontal">
+                        	<p><legend>What Kind?</legend>
+                            <input type="radio" name="mode" id="used" value="Used" class="required">
+                            <label for="used">Used</label>
+                            <input type="radio" name="mode" id="new" value="New" checked="checked">
+                            <label for="new">New</label></p>
+                		</fieldset>
+                        
+                	   <p><label for="date">Date Input:</label>
+                        <input type="date" name="date" id="date" value=""  />
+         	
+                    <p><label for="special">Special Request:</label>
+                    <textarea id="special"></textarea></p>
+                </div>
+                
+                <div data-inline="true" data-type="horizontal">
+                    <input href="" type="submit" id="submit" button data-inline="true" data-icon="check" value="Save" data-theme="a" data-ajax= "false"/>
+                    <input type="reset" id="reset" button data-inline="true" data-icon="delete" value="Reset" data-ajax="false"/>
+            	</div>
+                
+            </form>
+            
+            <!-- Clear Storage Link and Display Order Link -->
+            <nav>
+            	<small>
+                	<a href="#" id="clear">Clear Local Storage</a>
+                	<a href="#" id="displayLink">View Parts Needed</a>
+                	<a href="#list" id="addNew">Add New Part</a>
+            	</small>
+       		</nav>
+        </div>
+        <div data-role="footer" data-position="fixed" data-id="home">
+        	<div data-role="navbar">
+            	<ul>
+                	<li><a href="index.html" data-icon="home">Home</a></li>
+                    <li><a href="#list" data-icon="plus">Add</a></li>
+                    <li><a href="#contact" data-icon="info">Contact</a></li>
+                </ul>
+            </div>
+  		</div>
+    
+    </div>
+    
+    <!-- Google Ajax JS under here -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    
+    <!--CSS Datebox by http://jtsage.com/dp-demo/-->
+    <link rel="stylesheet" type="text/css" href="jquery.mobile.datebox.min.css" /> 
+    
+	<!--JQuery Mobile JS and Validate-->
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script  type="text/javascript" src="jquery.validate.min.js"></script>
+    <script type="text/javascript" src="jquery.mobile.datebox.min.js"></script>
+   	 
+    <!--Date Picker Plugin by http://jtsage.com/dp-demo/
+   	<link rel="stylesheet" href="jquery.ui.datepicker.mobile.css" /> 
+    <script src="jQuery.ui.datepicker.js"></script>
+    <script src="jquery.ui.datepicker.mobile.js"></script>-->
+
+	<!--Local Script-->
+    <script type="text/javascript" src="json.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+    
+    <!--Twitter Feed-->
+   	<script type="text/javascript" src="https://twitter.com/status/user_timeline/jonellcolon.json?count=30&callback=listTweets"></script>
+
+</body>
 </html>
