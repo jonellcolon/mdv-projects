@@ -1,0 +1,10 @@
+{
+  "env": {
+    "local": {
+      "db": "http://127.0.0.1:5984/asdiproject"
+    },
+    "cloudant": {
+      "db": "https://oneciagicandervesterytor:Yf7d4myVPU2wCes7am722I72@jonellcolon.cloudant.com/asdiproject"
+    }
+  }
+}
