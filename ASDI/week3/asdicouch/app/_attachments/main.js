@@ -1,7 +1,7 @@
 
 
 $('#home').on('pageinit', function(){
-	//code needed for home page goes here.
+	console.log("Home page loaded.");
 });	
 
 
@@ -10,20 +10,133 @@ $('#engine').on('pageinit', function() {
     $.couch.db("asdiproject").view("asdiproject/cars", {
     	success: function(data) {
     	console.log(data);
-    		$('#engine').empty();
+    		$('#engineview').empty();
     		$.each(data.rows, function(index, value) {
     			var item = (value.value || value.doc);
-    			$('#engine').append(
+    			$('#engineview').append(
+    						$('<li>').append(
+    								$('<a>')
+    									.attr("href", "cars.html?cars=" + item.groups)
+    									.text(item.ctype)
+    					)
+    				);
+    		});
+    		$('#engineview').listview('refresh');
+    	}
+    });
+});
+
+
+$('#cabin').on('pageinit', function() {
+    $.couch.db("asdiproject").view("asdiproject/cabin", {
+    	success: function(data) {
+    	console.log(data);
+    		$('#cabinview').empty();
+    		$.each(data.rows, function(index, value) {
+    			var item = (value.value || value.doc);
+    			$('#cabinview').append(
+    						$('<li>').append(
+    								$('<a>')
+    									.attr("href", "cars.html?cars=" + item.groups)
+    									.text(item.ctype)
+    					)
+    				);
+    		});
+    		$('#cabinview').listview('refresh');
+    	}
+    });
+});
+
+
+$('#exhaust').on('pageinit', function() {
+    $.couch.db("asdiproject").view("asdiproject/exhaust", {
+    	success: function(data) {
+    	console.log(data);
+    		$('#exhaustview').empty();
+    		$.each(data.rows, function(index, value) {
+    			var item = (value.value || value.doc);
+    			$('#exhaustview').append(
     				$('<li>').append(
     					$('<a>')
     						.attr("href", "cars.html?cars=" + item.groups)
-    						.text(item.groups)
+    						.text(item.ctype)
     				)
     			);
     		});
-    		$('#engine').listview('refresh');
+    		$('#exhaustview').listview('refresh');
     	}
     });
+});
+
+
+$('#wheels').on('pageinit', function() {
+    $.couch.db("asdiproject").view("asdiproject/wheels", {
+    	success: function(data) {
+    	console.log(data);
+    		$('#wheelsview').empty();
+    		$.each(data.rows, function(index, value) {
+    			var item = (value.value || value.doc);
+    			$('#wheelsview').append(
+    				$('<li>').append(
+    					$('<a>')
+    						.attr("href", "cars.html?cars=" + item.groups)
+    						.text(item.ctype)
+    				)
+    			);
+    		});
+    		$('#wheelsview').listview('refresh');
+    	}
+    });
+});
+
+
+$('#body').on('pageinit', function() {
+    $.couch.db("asdiproject").view("asdiproject/body", {
+    	success: function(data) {
+    	console.log(data);
+    		$('#bodyview').empty();
+    		$.each(data.rows, function(index, value) {
+    			var item = (value.value || value.doc);
+    			$('#bodyview').append(
+    				$('<li>').append(
+    					$('<a>')
+    						.attr("href", "cars.html?cars=" + item.groups)
+    						.text(item.ctype)
+    				)
+    			);
+    		});
+    		$('#bodyview').listview('refresh');
+    	}
+    });
+});
+
+
+$('#trunk').on('pageinit', function() {
+    $.couch.db("asdiproject").view("asdiproject/trunk", {
+    	success: function(data) {
+    	console.log(data);
+    		$('#trunkview').empty();
+    		$.each(data.rows, function(index, value) {
+    			var item = (value.value || value.doc);
+    			$('#trunkview').append(
+    				$('<li>').append(
+    					$('<a>')
+    						.attr("href", "cars.html?cars=" + item.groups)
+    						.text(item.ctype)
+    				)
+    			);
+    		});
+    		$('#trunkview').listview('refresh');
+    	}
+    });
+});
+
+$('#cars').on("pageshow", function(){
+	var cars = urlVars()["cars"];
+	console.log(cars);
+	$.couch.db("asdiproject").view("asdiproject/cars", {
+		startkey: "cars:" + cars
+	});
 });
 
 
@@ -41,30 +154,24 @@ var urlVars = function() {
 	return urlValues;
 };
 
-$('#cars').live("pageshow", function(){
-	var cars = urlVars()["cars"];
-	console.log(cars);
-	$.couch.db("asdiproject").view("asdiproject/cars", {
-		startkey: "cars:" + cars
-	});
-});
-
 
 // Edit and Delete Buttons
 
-function createButtonsLi(key, couchButtonsLi) {
-	var editButton = $('<a href="#" data-role="button data-mini="true" data-inline="true">Edit Part</a>');
-	$(editButton).key = key;
-	$(couchButtonsLi).append(editButton);
-	var deleteButton = $('<a href="#" data-role="button data-mini="true" data-inline="true">Delete Part</a>');
-	$(deleteButton).key = key;
-	$(couchButtonsLi).append(deleteButton);
+function makeItemLinks(key, couchLinksLi) {
+	var editLink = $('#edit');
+	$(editLink).key = key;
+	$(couchLinksLi).append(editLink);
+	var deleteLink = $('#delete');
+	$(deleteLink).key = key;
+	$(couchLinksLi).append(deleteLink);
 };
 
 
 // Data show on cars.html
 
-$('#carsData').live('pageshow', function(){
+
+$('#carsData').on('pageshow', function(){
+	var view = urlVars();
 	$.couch.db("asdiproject").view("asdiproject/cars", {
 		success: function(data){
 		console.log(data);
@@ -88,9 +195,10 @@ $('#carsData').live('pageshow', function(){
 							.append($('<li>').text(ctype))
 							.append($('<li>').text(cpart))
 							.append($('<li>').text(special))
+							
 						);
-			var couchButtonsLi = $('<li></li>').appendTo('#carsView');
-			createButtonsLi(id, couchButtonsLi);
+			var couchLinksLi = $('<li></li>').appendTo('#carsView');
+			makeItemLinks(id, couchLinksLi);
 			});
 			$('#carsView').listview('refresh');
 			}
@@ -128,7 +236,7 @@ $('#carsData').live('pageshow', function(){
 			
 		}
 	});
-});*/
+});
 
 
 $('#exhaust').on('pageinit', function(){
@@ -298,7 +406,7 @@ $('#cabin').on('pageinit', function(){
 			
 		}
 	});
-});
+});*/
 
 
 $('#viewData').on('pageinit', function(){
@@ -370,25 +478,25 @@ $(document).on('mobileinit',function(){
 
 	};
 
-	function toggleControls(n){
+	function toggle(n){
 		switch(n){
 			case "on":
-				$('#partList').hide();
-				$('#clear').show();
-				$('#displayLink').hide();
-				$('#addNew').show();
+				$('#partList').css("display", "none");
+				$('#clear').css("display", "inline");
+				$('#displayLink').css("display", "none");
+				$('#addNew').css("display", "inline");
 				break;
 			case "off":	
-				$('#partList').show();
-				$('#clear').show();
-				$('#displayLink').show();
-				$('#addNew').hide();
-				$('#items').hide();
+				$('#partList').css("display", "block");
+				$('#clear').css("display", "inline");
+				$('#storeData').css("display", "inline");
+				$('#addNew').css("display", "inline");
+				$('#items').css("display", "none");
 				break;
 			default:
 				return false;
 		}
-	}
+	};
 
 	var storeData = function (key){
 		//if the is no key, this is means this is a brand new item and need new key.
@@ -441,7 +549,7 @@ $(document).on('mobileinit',function(){
     }
 	
 	var getData = function (){
-		toggleControls('on');
+		toggle('on');
 		if(localStorage.length === 0){
 			alert("There is no data in local storage, default data added.");
 			autoFillData();
@@ -480,15 +588,15 @@ $(document).on('mobileinit',function(){
 
 //Get the image for the right  category
 	function getImage(groups, makeSubList){
-		var imageLi = $("<li></li>");
-		makeSubList.append(imageLi);
-		var newImg = $("<img />");
+		var imageLi = $('<li></li>');
+		$(makeSubList).append(imageLi);
+		var newImg = $('<img>');
 		var setSrc = newImg.attr("src", "images/" + groups + ".png");
-		imageLi.append(newImg);	
+		$('imageLi').append(newImg);	
 	};
 
 //Auto Populate Local Storage
-	var autoFillData = function (){
+	function autoFillData(){
 		//Store JSON into local storage.
 		for (var n in json){
 			var id = Math.floor(Math.random()*100000001);
@@ -521,32 +629,31 @@ $(document).on('mobileinit',function(){
 		deleteLink.key = key;
 		var deleteText = "Delete Item";
 		$(deleteLink).on('click', deleteItem);
-		deleteLink.html(deleteText);
+		//deleteLink.html(deleteText);
 		linksLi.appendTo(deleteLink);
 		};
 		
-		var editItem = function (){
-		//var thisKey = $(this).attr("key");
+		function editItem(key){
 // Grab the data from our item.
 		var value = localStorage.getItem(this.key);
-		var item = jquery.parseJSON(value);
+		var item = JSON.parse(value);
 		var save = $('submit');
 		
 		//Show the form.
-		toggleControls("off");
+		toggle("off");
 		console.log("Am want to show you.");
 		// Populate the form field.
-		$('#groups').val(item.groups[1]);
-		$('#fullname').val(item.fullname[1]);
-		$('#phone').val(item.phone[1]);
-		$('#email').val(item.email[1]);
-		$('#cpart').val(item.cpart[1]);
-		$('#hmany').val(item.hmany[1]);
-		$('#ctype').val(item.ctype[1]);
-		$('#cmodel').val(item.cmodel[1]);
-		$('#ycar').val(item.ycar[1]);
+		$('#groups').value(item.groups[1]);
+		$('#fullname').value(item.fullname[1]);
+		$('#phone').value(item.phone[1]);
+		$('#email').value(item.email[1]);
+		$('#cpart').value(item.cpart[1]);
+		$('#hmany').value(item.hmany[1]);
+		$('#ctype').value(item.ctype[1]);
+		$('#cmodel').value(item.cmodel[1]);
+		$('#ycar').value(item.ycar[1]);
 		var radios = document.forms[0].mode;
-		for(var i=0; i<radios.length; i++){
+		for (var i=0; i<radios.length; i++){
 			if(radios[i].val == "Used" && item.mode[1] == "Used"){
 				radios[i].attr("checked", "checked");
 			}else if (radios[i].val == "New" && item.mode[1] == "New"){
@@ -557,17 +664,17 @@ $(document).on('mobileinit',function(){
 		$('#special').val(item.special[1]);
 
 		//Remove the initial listener from input 
-		save.off('click', storeData);
+		submitData.removeEventListener('click', submit);
 		//Change Submit button value to edit button
-		$('#submit').val("Edit Content");
+		$('#submit').value = "Edit Content";
 		var editSubmit = $('#submit');
 		//Save the key value established in this function as a property
-		editSubmit.on('click', validate);
-		editSubmit.key = this.key;	
+		editSubmit.addEventListener('click', validate);
+		editSubmit.key = key;	
 	};
 	
 // Delete Item Data
-	var deleteItem = function (){
+	function deleteItem(){
 		var ask = confirm("Are you sure you want to delete item?");
 		if (ask){
 			localStorage.removeItem(this.key);
@@ -580,7 +687,7 @@ $(document).on('mobileinit',function(){
 	};
 
 //Clear Local Storage
-	var clearLocal = function (){
+	function clearLocal (){
 		if(localStorage.length === 0){
 			alert("There is no data to clear.");
 		}else{
@@ -598,12 +705,9 @@ $(document).on('mobileinit',function(){
   });
 
 // Set Link & Submit Click Events
-	var displayLink = $('#displayLink');
-	displayLink.on('click', getData);
-	var clearLink = $('#clear');
-	clearLink.on('click', clearLocal);
-	var save = $('#submit');
-	save.on('click', validate);
+	$('#displayLink').on('click', getData);
+	$('#clear').on('click', clearLocal);
+	$('#submit').on('click', validate);
 
 })
 

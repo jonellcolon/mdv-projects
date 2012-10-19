@@ -23,9 +23,9 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
         <link rel="stylesheet" href="style.css" />
         
-         <!--Twitter Feed-->
-   	<script type="text/javascript" src="http://twitter.com/status/user_timeline/jonellcolon.json?count=30&callback=listTweets"></script>
-        
+         <!--Twitter Feed
+   	<script type="text/javascript" src="https://twitter.com/status/user_timeline/jonellcolon.json?count=30&callback=listTweets"></script>
+        -->
         <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
         <script src="modernizr.custom.min.js"></script>
 
@@ -132,8 +132,8 @@
             
         </div>
         
-        <div data-role="content" class="ui-body-c">
-        	<ul id="engine" data-role="listview">
+        <div data-role="content">
+        	<ul id="engineview" data-role="listview">
         		
             </ul>
         </div>
@@ -159,8 +159,8 @@
             
         </div>
         
-        <div data-role="content" class="ui-body-c">
-        	<ul id="cabin" data-role="listview">
+        <div data-role="content">
+        	<ul id="cabinview" data-role="listview">
         		
             </ul>
         </div>
@@ -186,7 +186,7 @@
         </div>
         
         <div data-role="content">
-        	<ul data-role="listview" data-filter="true" data-inset="true">
+        	<ul id="wheelsview" data-role="listview">
         		
             </ul>
         </div>
@@ -212,7 +212,7 @@
         </div>
         
         <div data-role="content">
-        	<ul data-role="listview" data-filter="true" data-inset="true">
+        	<ul id="exhaustview" data-role="listview">
             	
             </ul>
         </div>
@@ -238,7 +238,7 @@
         </div>
         
         <div data-role="content">
-        	<ul data-role="listview" data-filter="true" data-inset="true">
+        	<ul id="trunkview" data-role="listview">
         		
             </ul>
         </div>
@@ -264,7 +264,7 @@
         </div>
         
         <div data-role="content">
-        	<ul data-role="listview" data-filter="true" data-inset="true">
+        	<ul id="bodyview" data-role="listview">
         		
             </ul>
         </div>
@@ -371,7 +371,7 @@
         </div>
       
         <div data-role="content">
-        	<ul data-role="listview" data-filter="true" data-inset="true">
+        	<ul id="viewAll" data-role="listview">
         		
             </ul>
         </div>

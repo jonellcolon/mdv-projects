@@ -1,0 +1,71 @@
+<!doctype html>  
+<html lang="en">
+<head>
+
+	<meta charset="utf-8"/>
+
+	<title>iAlwaysWantedTo</title>
+
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True"/>
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on"/>
+
+</head>
+<body>
+
+
+<!--List All Page-->	
+	<div data-role="page" data-theme="a" id="seeinfo" data-add-back-btn="true">
+		<a href="index.html" data-direction="reverse" style="text-decoration:none" >
+			<div data-role="header" data-theme="a" align="center" >
+			 <h3 >Cars Saved</h3>
+			</div>
+		</a>
+		<div data-role="content" data-theme="a" >
+			<div align="center">
+				<a href="index.html#partList" data-ajax="false">
+				<img src="mecpartlogo.png" id="img"/>
+				</a>
+			</div>
+			<div>	
+				<ul class="ui-listview" data-role="view" data-filter="true" data-divider-theme="c">
+					<li data-role="list-divider" >
+					
+					</li>						
+				</ul>
+			</div>
+		</div>
+		<div data-role="content" >
+			<ul id="info" data-role="listview">
+			</ul>
+		</div>
+		<div id="editLink">
+		  			Editing
+		  		</a> -->
+	  	</div>
+	  	<div>
+			<a data-role="button" value="Delete" id="clear">
+					Delete
+			</a>
+		</div>
+
+		<div data-role="footer" data-theme="a" data-position="fixed" >
+			<h4>Share With Friends!</h4>
+		</div>
+	</div>
+		<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script type="text/javascript" src="jquery.validate.min.js"></script>
+	<script type="text/javascript" src="additional-methods.min.js"></script>
+	<script type="text/javascript" src="editForm.js"></script>
+	<script type="text/javascript" src="main2.js"></script>
+	<script type="text/javascript" src="jquery.couch.js"></script>
+
+
+</body>
+</html>
