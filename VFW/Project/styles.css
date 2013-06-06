@@ -66,6 +66,7 @@ input[type="submit"]{
 }
 li{
 	line-height: 20px;
+	border: 2px;
 }
 input[type="button"]{
 	margin: 8px; 

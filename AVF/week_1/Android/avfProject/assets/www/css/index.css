@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+#api{
+	padding: 20px 0px 40px 0px;
+}
+#list-divider{
+	margin: 40px 0px 0px 0px;
+	font-weight: lighter;
+	padding: 10px 0px 10px 0px;
+	font-size: 16px;
+	background-color: #FF8000;
+	color: #FFF;
+	text-align: center;
+}
+body{
+	background: linear-gradient(135deg, rgba(147,147,147,1) 0%,rgba(226,226,226,1) 100%);
+}
+#videoFeed{
+	text-align: center;
+	margin: 0px 0px -43px 0px;
+}
+#navigation a{
+	background-color: #CCC;
+}
+#api a{
+	background-color: #CCC;
+	icon: auto;
+}
+#research{
+	margin: 30px 10px 10px -30px;
+	border-radius: 10px 10px 0px 0px;
+	text-align: center;
+	font-weight: lighter;
+	padding: 10px 0px 10px 20px;
+	font-size: 16px;
+	background-color: #333;
+	color: #FFF;
+}
+h1{
+	font-size: 20px;
+}
+#twitter-output img{
+	float:left;
+	padding: 0px 6px;
+}
+#twitter-output{
+	list-style: none;
+	text-align: justify;
+}
+#twitter-output li{
+	background-color: #FF8000;
+	border-radius: 15px 0px 15px 0px;
+	padding: 15px;
+	margin: 20px 5px;
+	color: #000;
+	border-style: double;
+}
+#edmunds-output{
+	list-style: none;
+	text-align: justify;
+}
+#edmunds-output li{
+	background-color: #FF8000;
+	border-radius: 15px 0px 15px 0px;
+	padding: 15px;
+	margin: 20px 5px;
+	color: #000;
+	border-style: double;
+	border-spacing: inherit;
+}
+#week1 p{
+	padding: 15px;
+}
