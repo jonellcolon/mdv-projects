@@ -69,12 +69,10 @@ h1{
 	border-spacing: inherit;	
 }
 #week1 p{
-	padding: 15px;
+	padding: 10px;
 }
-footer{
-    padding: 5px;
-    margin: 10px;
-    
+#footer{
+	text-align: center;   
 }
 
 	

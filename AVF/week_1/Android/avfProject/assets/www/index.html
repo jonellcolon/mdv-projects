@@ -7,7 +7,7 @@
             <meta name="format-detection" content="telephone=no" />
             <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
             <link href="css/main.css" rel="stylesheet" type="text/css" />
-            <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+            <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
         </head>
     
     <body>
@@ -22,12 +22,12 @@
             <div data-role="content">
                 <ul id="navigation" data-role="listview" data-theme="none">
                     <div id="list-divider">NATIVE APPS</div>
-                        <li><a href="#geolocationPage" data-icon="arrow-r" data-iconpos="right" class="slide">Geolocation</a></li>
-                        <li><a href="#camera" class="slide">Camera</a></li>
-                        <li><a href="#contacts" data-icon="arrow-r" data-iconpos="right" class="slide">Contacts</a></li>
-                        <li><a href="#network" class="slide">Network</a></li>
-                        <li><a href="#misc" class="slide">Misc...</a></li>
-                        <li><a href="#scanner" class="slide">Scanner</a></li>
+                        <li><a href="#geolocationPage" id="geoBtn" data-icon="arrow-r" data-iconpos="right" class="slide">Geolocation</a></li>
+                        <li><a href="#camera" id="cameraBtn" class="slide">Camera</a></li>
+                        <li><a href="#contacts" id="contBtn" data-icon="arrow-r" data-iconpos="right" class="slide">Contacts</a></li>
+                        <li><a href="#network" id="netBtn" class="slide">Network</a></li>
+                        <li><a href="#misc" id="miscBtn" class="slide">Misc...</a></li>
+                        <li><a href="#scanner" id="scanBtn" class="slide">Scanner</a></li>
                 </ul>
             </div>
             
@@ -37,8 +37,8 @@
             <div data-role="content">
                 <ul id="api" data-role="listview" data-ajax="false" data-theme="none">
                     <div id="list-divider" align="center" data-ajax="false">JSON API</div>
-                        <li><a href="#twitter" data-icon="arrow-r" data-iconpos="right" data-iconshadow="true" class="slide">Twitter API</a></li>
-                        <li><a href="#edmunds" data-icon="arrow-r" data-iconpos="right" class="slide">Edmunds API</a></li>
+                        <li><a href="#twitter" id="twitBtn" data-icon="arrow-r" data-iconpos="right" data-iconshadow="true" class="slide">Twitter API</a></li>
+                        <li><a href="#edmunds" id="edmunBtn" data-icon="arrow-r" data-iconpos="right" class="slide">Edmunds API</a></li>
                 </ul>
             </div>
             
@@ -55,10 +55,8 @@
             
             <!-- FOOTER -->
             
-            <div data-role="footer">
-                <h4>
+            <div data-role="footer" id="footer">
                     <p>&copy; MDVBS AVF 2013.</p>
-                </h4>
             </div>
             
         </div>
@@ -71,11 +69,10 @@
                 <h1>Camera</h1>
             </div>
             
-            
-            <div data-role="footer">
-                <h4>
+            	<p>Coming Soon!</p>
+                
+            <div data-role="footer" id="footer">
                     <p>&copy; MDVBS AVF 2013.</p>
-                </h4>
             </div>
         </div>
         
@@ -88,13 +85,11 @@
             </div>
             
             
-                <p id="geolocation">Finding geolocation...</p>
+                <p>Coming Soon!</p>
             
             
-            <div data-role="footer">
-                <h4>
+            <div data-role="footer" id="footer">
                     <p>&copy; MDVBS AVF 2013.</p>
-                </h4>
             </div>
         </div>
         
@@ -106,11 +101,11 @@
                 <h1>Network Connection</h1>
             </div>
             
-            <p>Finding Network status...</p>
+            	<p>Coming Soon!</p>
             
             
-            <div data-role="footer">
-                <h4><p>&copy; MDVBS AVF 2013.</p></h4>
+            <div data-role="footer" id="footer">
+                <p>&copy; MDVBS AVF 2013.</p>
             </div>
         </div>
         
@@ -127,10 +122,8 @@
                 </div>
             
             
-            <div data-role="footer">
-                <h4>
+            <div data-role="footer" id="footer">
                     <p>&copy; MDVBS AVF 2013.</p>
-                </h4>
             </div>
         </div>
         
@@ -148,10 +141,8 @@
                 </div>
             
             
-            <div data-role="footer">
-                <h4>
+            <div data-role="footer" id="footer">
                     <p>&copy; MDVBS AVF 2013.</p>
-                </h4>
             </div>
         </div>
         
@@ -181,10 +172,8 @@
             
                     <p>Our previous MIU class was very helpful in how a design concept should be noted when doing such for mobile. The feel, wording and structure on how to design and develop for mobile were very effective for me. Also the knowledge of coding such design and implementing the usage and how a user can interact with interfaces was a great learning tool.</p>
             
-                    <div data-role="footer">
-                        <h4>
+                    <div data-role="footer" id="footer">
                             <p>&copy; MDVBS AVF 2013.</p>
-                        </h4>
                     </div>
             </div>
     </body>
