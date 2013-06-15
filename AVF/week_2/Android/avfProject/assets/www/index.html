@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html>
+    
+        <head>
+            <meta charset="utf-8" />
+            <meta name="format-detection" content="telephone=no" />
+            <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+            <link href="css/main.css" rel="stylesheet" type="text/css" />
+            <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
+        </head>
+    
+    <body>
+        <div data-role="page" id="home" data-theme="c">
+            <div data-role="header">
+                <h1>MY AVF APP</h1>
+            </div>
+            
+            
+            <!-- NATIVE BUTTON APPS -->
+            
+            <div data-role="content">
+                <ul id="navigation" data-role="listview" data-theme="none">
+                    <div id="list-divider">NATIVE APPS</div>
+                        <li><a href="#geolocationPage" id="geoBtn" data-icon="arrow-r" data-iconpos="right" class="slide">Geolocation</a></li>
+                        <li><a href="#camera" id="cameraBtn" class="slide">Camera</a></li>
+                        <li><a href="#contacts" id="contBtn" data-icon="arrow-r" data-iconpos="right" class="slide">Contacts</a></li>
+                        <li><a href="#network" id="netBtn" class="slide">Network</a></li>
+                        <li><a href="#misc" id="miscBtn" class="slide">Misc...</a></li>
+                        <li><a href="#scanner" id="scanBtn" class="slide">Scanner</a></li>
+                </ul>
+            </div>
+            
+            
+            <!-- JSON API -->
+            
+            <div data-role="content">
+                <ul id="api" data-role="listview" data-ajax="false" data-theme="none">
+                    <div id="list-divider" align="center" data-ajax="false">JSON API</div>
+                        <li><a href="#instagram" id="twitBtn" data-icon="arrow-r" data-iconpos="right" data-iconshadow="true" class="slide">Instagram API</a></li>
+                        <li><a href="#edmunds" id="edmunBtn" data-icon="arrow-r" data-iconpos="right" class="slide">Edmunds API</a></li>
+                </ul>
+            </div>
+            
+            <!-- RESEARCH LINKS -->
+            
+            <div data-role="content">
+                <ul id="weekResearch">
+                    <div id="research" align="center" data-ajax="false">RESEARCH</div>
+                        <li><a href="#week1" id="weekOneLink">Week One</a></li>
+                        <li><a href="#week2" id="weekTwoLink">Week Two</a></li>
+                        <li><a href="#weekThree" id="weekThreeLink">Week Three</a></li>
+                </ul>
+            </div>
+            
+            <!-- FOOTER -->
+            
+            <div data-role="footer" id="footer">
+                    <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+            
+        </div>
+        
+        
+        <!-- Camera Page -->
+        
+        <div data-role="page" id="camera" data-add-btn="true" data-add-back-btn="true">
+            <div data-role="header">
+                <h1>Camera</h1>
+            </div>
+            
+            	<p>Coming Soon!</p>
+                
+            <div data-role="footer" id="footer">
+                    <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+        </div>
+        
+        
+        <!-- Geolocation Page -->
+        
+        <div data-role="page" id="geolocationPage" data-add-back-btn="true" data-theme="c">
+            <div data-role="header">
+                <h1>Geolocation</h1>
+            </div>
+            
+            
+                <p>Coming Soon!</p>
+            
+            
+            <div data-role="footer" id="footer">
+                    <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+        </div>
+        
+        
+        <!-- Network Connection -->
+
+        <div data-role="page" id="network" data-add-back-btn="true" data-theme="c">
+            <div data-role="header">
+                <h1>Network Connection</h1>
+            </div>
+            
+            	<p>Coming Soon!</p>
+            
+            
+            <div data-role="footer" id="footer">
+                <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+        </div>
+        
+        
+        <!-- Instagram Page -->
+        
+<div data-role="page" id="instagram" data-add-back-btn="true">
+  			<div data-role="header">
+    			<h1>Instagram Pics</h1>
+  			</div>
+            
+  					<div id="instagramPics" data-role="content">
+  
+  					</div>
+  
+  
+  			<div data-role="footer" id="footer">
+                    <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+</div>
+        
+        <!-- Edmunds Page -->
+        
+        
+        <div data-role="page" id="edmunds" data-add-back-btn="true">
+            <div data-role="header">
+                <h1>Edmunds Cars</h1>
+            </div>
+            
+                <div id="edmunds-output" data-role="content">
+                
+                </div>
+            
+            
+            <div data-role="footer" id="footer">
+                    <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+        </div>
+        
+<!-- Week 1-->
+        
+            <div data-role="page" id="week1" data-add-back-btn="true">
+                <div data-role="header">
+                        <h1>Week 1</h1>
+                </div>
+            
+                    <p><strong>Less obvious perks of using 'live' data resources include logins and payments. How could Twitter be used in these two scenarios?</strong></p>
+            
+                    <p>I could see Twitter in both scenarios I mean we already see it in logins but payments would probably be possible but would the user want to use Twitter for such thing. I think a research on how user feel about it as a social media and a payment media would have to be made to determine. Would I personally use twitter as payments? No. I think a more secure interface would have to be implemented for such thing.</p>
+            
+                    <p><strong>Why would we need JSON-P, specifically?</strong></p>
+                
+                    <p>Researching on JSON-P, the concept of usage for JSON-P has been proven more affective since most web browsers prohibit such technic but yet able to request data from a server in a different domain and not blockade to such data would by ideal for developers.</p>
+            
+                    <p><strong>Based on the JSON-P search results: what data resource(s) do you think might pair well with which types of Native device features?</strong></p>
+            
+                    <p>There are so many way to use JSON-P with native device features like getting info on the latest concert, the latest information on the news and the list would go on and on because of all the mashups that can be made to obtain such data for usage.</p>
+            
+                    <p><strong>Please describe any design and functionality intentions you may have for your Demo app components this month.</strong></p>
+            
+                    <p>I believe use the components picked to search on maps, see what’s trending on twitter and Facebook, continue to save contacts and data in order to use on a later day is very important. Twitter and Facebook have shown to be affective when natural disasters have occurred. The data from such twitter trends have help to locate the major needs in areas affected by natural disasters.</p>
+            
+                    <p><strong>Briefly describe some past 'lessons learned' regarding workflow as it relates to research, design, development, etc.</strong></p>
+            
+                    <p>Our previous MIU class was very helpful in how a design concept should be noted when doing such for mobile. The feel, wording and structure on how to design and develop for mobile were very effective for me. Also the knowledge of coding such design and implementing the usage and how a user can interact with interfaces was a great learning tool.</p>
+            
+                    <div data-role="footer" id="footer">
+                            <p>&copy; MDVBS AVF 2013.</p>
+                    </div>
+            </div>
+            
+            
+<!-- Week 2 -->
+            
+			<div data-role="page" id="week2" data-add-back-btn="true">
+  				<div data-role="header">
+    				<h1>Week 2</h1>
+ 				</div>
+                
+ 					<p><strong>What are some of the ways that you could change your HTML on your Demo app to be more accessible? (Remember, you can use the Section tag with jQuery, for instance)</strong></p>
+                    
+					<p>Well I am currently working on such topic in my app so to see this question is not a surprise at all. I am asking myself what can I change to be more accessible and to me personally I believe just specifying the elements needed whether it be through id or just calling those li or ul would make It more accessible for myself.</p>
+                    
+					<p><strong>Visit a video service on the web (like YouTube) and search for "Screen Reader Demo" and "Mobile Screen Reader" - What are some of the common frustrations (or common support mechanisms) that you see among the examples that are given - how could you fix them (or use them)?</strong></p>
+                    
+					<p>Wow, this was honestly an eye opener for us in mobile and should also be for those in web development. I saw a video of a blind man needing to actually listen to all sites listed in a website in order for him to get to the site he actually wanted to visit. Some sites have over 2,500 links before you get to the site you want. So what does he do? He put the speed of the Screen Reader faster so he can get to the site he wants quicker. This example hit me because my father in law was blind and I sometimes use to see him go through this. I suggest some how making the search more accessible by asking the user for specific info on the site they search in order to reach the goal. More ideas are coming to me as I type but I would start with such, also the speech of the program has to be made clearer for the user as well.</p>
+                    
+					<p><strong>Devices: Please list two devices (and some of their features) that are made specifically to support Accessibility.</strong></p>
+                    
+					<p>Apple iPhone has zoom, which magnifies the entire device screen, white on black for inverting the colors on display, voice control, speak auto-text and many more.                 
+Android Devices also has the most devices for speech and reader for people needed accessibility.</p>
+
+					<p>The both competitors have not only look to improve theyre devices to those not needed accessibility but also grow theyre market with those who do.</p>
+                    
+					<p><strong>Mobile Apps: Please list two apps (either Android or iOS, or both) that are made specifically to support Accessibility.</strong></p>
+
+					<p>Android App: Mobile Accessibility &amp;
+					iOS App: Dragon tools<p>
+
+  
+ 					 <div data-role="footer" id="footer">
+                            <p>&copy; MDVBS AVF 2013.</p>
+                    </div>
+</div>
+
+    </body>
+            <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
+            <script src="js/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+            <script src="js/modernizr.custom.07669.js" type="text/javascript"></script>
+        	<script src="cordova-2.7.0.js" type="text/javascript"></script>
+            <script type="text/javascript" src="js/index.js"></script>
+</html>
