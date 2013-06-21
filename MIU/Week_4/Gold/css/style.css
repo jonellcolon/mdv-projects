@@ -146,3 +146,6 @@ label.error{display:block; margin:10px 0; color:#cc0000;}
 	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 	text-decoration: none;
 }
+#cta{
+	width: 100%;
+}
