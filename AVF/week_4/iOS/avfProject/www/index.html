@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html>
+    
+        <head>
+            <meta charset="utf-8" />
+            <meta name="format-detection" content="telephone=no" />
+            <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+            
+            <link href="css/main.css" rel="stylesheet" type="text/css" />
+            <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp4sHOkX_n9PoFayLykTrk9l08tNp6ubg&sensor=false"></script>
+            <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+        </head>
+    
+    <body>
+        <div data-role="page" id="home" data-theme="none">
+            <div data-role="header" id="header">
+                <h1>MY AVF APP</h1>
+            </div>
+			<img class="headerImg" src="img/headerimage.png"/>            
+<!-- NATIVE BUTTON APPS -->
+            
+            <div data-role="content" class="gapApi">
+                <ul id="navigation" data-role="listview" data-theme="a">
+                    <div id="list-divider">NATIVE APPS</div>
+                        <li><a href="#geolocationPage" id="geoBtn" class="slide">Geolocation</a></li>
+                        <li><a href="#accelerometer" id="accBtn" class="slide">Accelerometer</a></li>
+                        <li><a href="#connection" id="cntBtn" class="slide">Connection</a></li>
+                        <li><a href="#loginPage" id="loginBtn" class="slide">Device</a></li>
+                </ul>
+             </div>   
+            
+<!--HTML 5 Video-->
+
+            <div data-role="content" id="videoFeed">
+        		<video controls width="100%">
+         			<source src="http://www.dropbox.com/s/i6z7qtb039g4tzo/ios.mp4" />
+         			<source src="http://www.dropbox.com/s/e2r7u2vwg12l0lh/android.webm" />
+                    <source src="http://www.dropbox.com/s/qrbtd46ns5myxxu/others.ogv" />
+                    Video tag not supported. Download the video <a href="http://www.dropbox.com/s/e2r7u2vwg12l0lh/android.webm">here</a>.
+        		</video>
+    		</div> 
+            
+<!-- JSON API -->
+            
+            <div data-role="content" class="apiClass">
+                <ul id="api" data-role="listview" data-ajax="false" data-theme="a">
+                    <div id="list-divider" align="center" data-ajax="false">JSON API</div>
+                        <li><a href="#instagram" id="twitBtn" data-icon="arrow-r" data-iconpos="right" data-iconshadow="true" class="slide">Instagram API</a></li>
+                        <li><a href="#edmunds" id="edmunBtn" data-icon="arrow-r" data-iconpos="right" class="slide">Edmunds API</a></li>
+                </ul>
+            </div>
+            
+<!-- RESEARCH LINKS -->
+            
+            <div data-role="content">
+                <ul id="weekResearch">
+                    <div id="research" align="center" data-ajax="false">RESEARCH</div>
+                        <li><a href="#week1" id="weekOneLink">Week One</a></li>
+                        <li><a href="#week2" id="weekTwoLink">Week Two</a></li>
+                        <li><a href="#week3" id="weekThreeLink">Week Three</a></li>
+                </ul>
+            </div>
+            
+            <!-- FOOTER -->
+            
+            <div data-role="footer" id="footer">
+                    <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+            
+     </div>
+        
+        
+<!-- Camera Page -->
+        
+        <div data-role="page" id="camera" data-add-btn="true" data-add-back-btn="true" data-ajax="false" data-theme="none">
+            <div data-role="header" id="header">
+                <h1>Camera</h1>
+            </div>
+            
+            	<p>Coming Soon!</p>
+                
+            <div data-role="footer" id="footer">
+                    <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+        </div>
+        
+        
+<!-- Geolocation Page -->
+        
+        <div data-role="page" id="geolocationPage" data-add-back-btn="true" data-ajax="false" data-theme="none">
+            <div data-role="header" id="header">
+                <h1>Geolocation</h1>
+            </div>
+            		<div data-role="content">
+                		<div id="gmap">
+                        </div>
+                    </div>
+                
+            
+            <div data-role="footer" id="footer">
+                    <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+        </div>
+        
+        
+<!-- Accelerometer -->
+
+        <div data-role="page" id="accelerometer" data-add-back-btn="true" data-ajax="false" data-theme="none">
+            <div data-role="header" id="header">
+                <h1>Accelerometer</h1>
+            </div>
+
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <label id="lblX">Acceleration X:</label>
+                    <input id="txtX" type="number" value="0" /><br />
+               
+                    <label id="lblY">Acceleration Y:</label>
+                    <input id="txtY" type="number" value="0" /><br />
+                
+                    <label id="lblZ">Acceleration Z:</label>
+                    <input id="txtZ" type="number" value="0" /><br />
+                    
+                    <input type="button" id="btnWatch" class="hotspot" value="Watch Accelerometer" />
+                </div>
+            </div>
+            
+            
+            <div data-role="footer" id="footer">
+                <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+        </div>
+        
+        
+<!-- Instagram Page -->
+        
+<div data-role="page" id="instagram" data-add-back-btn="true" data-ajax="false" data-theme="none">
+  			<div data-role="header" id="header">
+    			<h1>Instagram Pics</h1>
+  			</div>
+            
+  					<div id="instagramPics" data-role="content">
+  
+  					</div>
+  
+  
+  			<div data-role="footer" id="footer">
+                    <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+</div>
+        
+<!-- Edmunds Page -->
+        
+        
+        <div data-role="page" id="edmunds" data-add-back-btn="true" data-ajax="false" data-theme="none">
+            <div data-role="header" id="header">
+                <h1>Edmunds Cars</h1>
+            </div>
+            
+                <div id="edmunds-output" data-role="content">
+                
+                </div>
+            
+            
+            <div data-role="footer" id="footer">
+                    <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+        </div>
+        
+        
+<!-- Connection -->
+        
+        <div data-role="page" id="connection" data-add-back-btn="true" data-ajax="false" data-theme="none">
+
+            <div data-role="header" id="header">
+                <h1>Connection</h1>
+            </div>
+				<div data-role="content">
+                	<div id="imgConnection">
+                	</div>
+                
+                <input type="button" id="btnCheck" class="hotspot" value="Check Connection" />
+                </div>
+                
+            	
+            
+            <div data-role="footer" id="footer">
+                    <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+        </div>
+        
+        
+<!-- Device API -->
+        
+        <div data-role="page" id="loginPage" data-add-back-btn="true" data-ajax="false" data-theme="none">
+
+            <div data-role="header" id="header">
+                <h1>Device Properties</h1>
+            </div>
+            	<div data-role="content">
+                
+   					<ul data-role="listview" data-inset="true" id="deviceProperties">
+
+ 					</ul>
+  				</div>
+
+            <div data-role="footer" id="footer">
+                    <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+        </div>
+        
+        
+<!-- InApp Page -->
+        
+<div data-role="page" id="inapp" data-add-back-btn="true" data-ajax="false" data-theme="none">
+  			<div data-role="header" id="header">
+    			<h1>InApp</h1>
+  			</div>
+            
+  					<div id="instagramPics" data-role="content">
+  
+  					</div>
+  
+  
+  			<div data-role="footer" id="footer">
+                    <p>&copy; MDVBS AVF 2013.</p>
+            </div>
+</div>
+        
+        
+<!-- Week 1 -->
+        
+            <div data-role="page" id="week1" data-add-back-btn="true" data-ajax="false" data-theme="none">
+                <div data-role="header" id="header">
+                        <h1>Week 1</h1>
+                </div>
+            
+                    <p><strong>Less obvious perks of using 'live' data resources include logins and payments. How could Twitter be used in these two scenarios?</strong></p>
+            
+                    <p>I could see Twitter in both scenarios I mean we already see it in logins but payments would probably be possible but would the user want to use Twitter for such thing. I think a research on how user feel about it as a social media and a payment media would have to be made to determine. Would I personally use twitter as payments? No. I think a more secure interface would have to be implemented for such thing.</p>
+            
+                    <p><strong>Why would we need JSON-P, specifically?</strong></p>
+                
+                    <p>Researching on JSON-P, the concept of usage for JSON-P has been proven more affective since most web browsers prohibit such technic but yet able to request data from a server in a different domain and not blockade to such data would by ideal for developers.</p>
+            
+                    <p><strong>Based on the JSON-P search results: what data resource(s) do you think might pair well with which types of Native device features?</strong></p>
+            
+                    <p>There are so many way to use JSON-P with native device features like getting info on the latest concert, the latest information on the news and the list would go on and on because of all the mashups that can be made to obtain such data for usage.</p>
+            
+                    <p><strong>Please describe any design and functionality intentions you may have for your Demo app components this month.</strong></p>
+            
+                    <p>I believe use the components picked to search on maps, see what’s trending on twitter and Facebook, continue to save contacts and data in order to use on a later day is very important. Twitter and Facebook have shown to be affective when natural disasters have occurred. The data from such twitter trends have help to locate the major needs in areas affected by natural disasters.</p>
+            
+                    <p><strong>Briefly describe some past 'lessons learned' regarding workflow as it relates to research, design, development, etc.</strong></p>
+            
+                    <p>Our previous MIU class was very helpful in how a design concept should be noted when doing such for mobile. The feel, wording and structure on how to design and develop for mobile were very effective for me. Also the knowledge of coding such design and implementing the usage and how a user can interact with interfaces was a great learning tool.</p>
+            
+                    <div data-role="footer" id="footer">
+                            <p>&copy; MDVBS AVF 2013.</p>
+                    </div>
+            </div>
+            
+            
+<!-- Week 2 -->
+            
+			<div data-role="page" id="week2" data-add-back-btn="true" data-ajax="false" data-theme="none">
+  				<div data-role="header" id="header">
+    				<h1>Week 2</h1>
+ 				</div>
+                
+ 					<p><strong>What are some of the ways that you could change your HTML on your Demo app to be more accessible? (Remember, you can use the Section tag with jQuery, for instance)</strong></p>
+                    
+					<p>Well I am currently working on such topic in my app so to see this question is not a surprise at all. I am asking myself what can I change to be more accessible and to me personally I believe just specifying the elements needed whether it be through id or just calling those li or ul would make It more accessible for myself.</p>
+                    
+					<p><strong>Visit a video service on the web (like YouTube) and search for "Screen Reader Demo" and "Mobile Screen Reader" - What are some of the common frustrations (or common support mechanisms) that you see among the examples that are given - how could you fix them (or use them)?</strong></p>
+                    
+					<p>Wow, this was honestly an eye opener for us in mobile and should also be for those in web development. I saw a video of a blind man needing to actually listen to all sites listed in a website in order for him to get to the site he actually wanted to visit. Some sites have over 2,500 links before you get to the site you want. So what does he do? He put the speed of the Screen Reader faster so he can get to the site he wants quicker. This example hit me because my father in law was blind and I sometimes use to see him go through this. I suggest some how making the search more accessible by asking the user for specific info on the site they search in order to reach the goal. More ideas are coming to me as I type but I would start with such, also the speech of the program has to be made clearer for the user as well.</p>
+                    
+					<p><strong>Devices: Please list two devices (and some of their features) that are made specifically to support Accessibility.</strong></p>
+                    
+					<p>Apple iPhone has zoom, which magnifies the entire device screen, white on black for inverting the colors on display, voice control, speak auto-text and many more. Android Devices also has the most devices for speech and reader for people needed accessibility.</p>
+
+					<p>The both competitors have not only look to improve theyre devices to those not needed accessibility but also grow theyre market with those who do.</p>
+                    
+					<p><strong>Mobile Apps: Please list two apps (either Android or iOS, or both) that are made specifically to support Accessibility.</strong></p>
+
+					<p>Android App: Mobile Accessibility &amp;
+					iOS App: Dragon tools<p>
+
+  
+                <div data-role="footer" id="footer">
+                    <p>&copy; MDVBS AVF 2013.</p>
+                </div>
+</div>
+
+
+<!-- Week 3 -->
+        
+            <div data-role="page" id="week3" data-add-back-btn="true" data-ajax="false" data-theme="none">
+                <div data-role="header" id="header">
+                        <h1>Week 3</h1>
+                </div>
+            
+                    <p><strong>What are the 'top selling' app categories in the U.S.? Japan? Great Britain?</strong></p>
+						<p><strong>US:</strong></p>
+								<li>Social Network<br /></li>
+								<li>News<br /></li>
+								<li>Sports<br /></li>
+								<li>Entertainment<br /></li>
+                                <p><strong>Japan:</strong></p>
+                                <li>Social Network<br /></li>
+                                <li>Utilities<br /></li>
+                                <li>Food<br /></li>
+                                <li>Commerce<br /></li>
+                                <p><strong>Great Britain:</strong></p>
+                                <li>Utilities<br /></li>
+                                <li>Social Network<br /></li>
+                                <li>News<br /></li>
+                                <li>Commerce<br /></li>
+                    <p><strong>Based on your three answers above, what might you infer about each of the markets listed?</strong></p>
+                    <p>When comparing all three markets one thing we can be sure of is that Social Network will be part of the top categories whether is the first or second. Great Britain has similarities to both Japan and the US in regards to top categories. The US and Japan can be seen with different markets although Social Media is still a glue to hold them together.</p>
+                    <p><strong>What is the average cost and bandwidth limit per user (in general) in each of the three markets? How may this impact development?</strong></p>
+                        <p><strong>US (newamerica.net):</strong></p>
+                        3GB/1GB Bandwidth<br />
+                        768Kbps/256Kbps Speed<br />
+                        $19.95 Monthly Price<br />
+                        <p><strong>Japan (newamerica.net):</strong></p>
+                        420GB Bandwidth<br />
+                        47Mbps/5Mbps Speed<br />
+                        $63 Monthly Price<br />
+                        <p><strong>Great Britain:</strong></p>
+                        10GB Bandwidth<br />
+                        20Mbps Speed<br />
+                        $21 Monthly Price<br />
+					<p><strong>And, finally, what would be your suggested strategy in project topic and global market choice? Feel free to have a first and second choice.</strong></p>
+
+					<p>I would definitely like to target the US and also the Japan market because of the amount of users in both areas. Japan is a trending market for such things mobile as technode.com affirms “Japanese mobile market is far ahead of the rest of world.”  With that in mind covering Japan’s market is a must for market choice in regards to mobile.</p> 
+
+					<p><strong>Resources:</strong></p>
+
+					<p>(n.d.). Retrieved from http://mobithinking.com</p>
+
+                    <p>Li, C. (2009, August 10). Bandwidth caps for high-speed internet in the u.s. and japan. Retrieved from http://newamerica.net/publications/policy/bandwidth_caps_high_speed_internet_u_s_and_japan</p>
+                    
+                    <p>Murphy, D. (2011, June 16). How bad do we really have it? bandwidth caps around the world. Retrieved from http://www.maximumpc.com/article/features/how_bad_do_we_really_have_it_bandwidth_caps_around_world</p>
+                    
+                    <p>Lu, G. (2011, March 27). The latest trends in japanese mobile market, commented by serkan toto of techcrunch japan. Retrieved from http://technode.com/2011/03/27/the-latest-trends-in-japanese-mobile-market-commented-by-serkan-toto-of-techcrunch-japan/</p>
+
+            
+                    <div data-role="footer" id="footer">
+                            <p>&copy; MDVBS AVF 2013.</p>
+                    </div>
+            </div>
+
+    </body>
+            <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
+            <script src="js/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+            <script src="js/modernizr.custom.07669.js" type="text/javascript"></script>
+        	<script src="cordova-2.7.0.js" type="text/javascript"></script>
+            <script type="text/javascript" src="js/index.js"></script>
+</html>
